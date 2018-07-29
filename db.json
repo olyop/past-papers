@@ -1,8 +1,12 @@
 {
-  "admins": [
+  "subjects": [
     {
-      "id": 1,
-      "name": "Oliver"
-    }
+			"key": "GKvfvjbZsc",
+			"name": "Mathematics"
+		},
+		{
+			"key" : "dhRkSziwwp",
+			"name": "Mathematics Extension 1"
+		}
   ]
 }

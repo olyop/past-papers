@@ -1,6 +1,6 @@
 #SubjectSelection {
 	display: grid;
-	background-color: #EEEEEE;
+	background-color: #E0E0E0;
   align-items: center;
 	justify-content: center; }
 	.SubjectSelection_content {
@@ -12,17 +12,21 @@
 		box-shadow: 10px 10px 150px 150px #fff;
 		padding: 90px 160px; }
 		.SubjectSelection_title {
-			text-align: center;
+			display: flex;
+			align-items: center;
+			justify-content: center;
 			width: 35vw;
 			padding: 0 0 10px 0;
 			border-bottom: 1px solid #BDBDBD;
 			margin-bottom: 20px;
 			font-weight: 600;
 			font-size: 25px; }
+			.SubjectSelection_title-icon {
+				padding-right: 8px;
+				font-size: 28px; }
 		.SubjectSelection_subjects {
 			display: flex;
 			width: calc(35vw - 40px);
-			margin: 0 0 20px 0;
 			flex-direction: column;
 			justify-content: center;
 			align-items: center; }

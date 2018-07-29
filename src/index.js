@@ -3,6 +3,9 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import registerServiceWorker from './react/registerServiceWorker'
 
+// Import Globals
+import globals from './globals'
+
 // Import Components
 import SubjectSelection from './components/misc/SubjectSelection'
 import MathsAdvanced from './components/subjects/MathsAdvanced/MathsAdvanced'
@@ -21,7 +24,7 @@ class Index extends React.Component {
 	
 	render() {
 		if (this.state.subject === null) {
-			return <SubjectSelection />
+			return <SubjectSelection globals={globals} />
 		} else if (this.state.subject === 0) {
 			return <MathsAdvanced />
 		} else if (this.state.subject === 1) {
@@ -33,7 +36,7 @@ class Index extends React.Component {
 }
 
 ReactDOM.render(
-	<Index />,
+	<Index globals={globals} />,
 	document.getElementById('root')
 )
 

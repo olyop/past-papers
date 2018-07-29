@@ -1,19 +1,11 @@
 import React from 'react'
 
+import axios from 'axios'
 import makeId from '../../functions/make-id'
 
-import './SubjectSelection.css'
+import Loading from '../common/Loading'
 
-const subjects = [
-	{
-		key: makeId(),
-		name: 'Mathematics'
-	},
-	{
-		key : makeId(),
-		name: 'Mathematics Extension 1'
-	}
-]
+import './SubjectSelection.css'
 
 class SubjectSelectionButton extends React.Component {
 	constructor(props) {
@@ -27,7 +19,6 @@ class SubjectSelectionButton extends React.Component {
 			<button className="SubjectSelection_button"
 				onMouseEnter={this.handleHover}
 				onMouseLeave={this.handleHover}>
-				<div className="SubjectSelection_button-icon"><i className="material-icons" style={{ color: this.state.hover ? '#333' : '#fff' }}>arrow_right_alt</i></div>
 				<span className="SubjectSelection_list">{this.props.index + 1}.</span>
 				<span className="SubjectSelection_hsc">HSC</span>
 				<span>{this.props.name}</span>
@@ -37,15 +28,34 @@ class SubjectSelectionButton extends React.Component {
 } 
 
 class SubjectSelection extends React.Component {
+	constructor(props) {
+		super(props)
+		this.state = { subjects: null }
+	}
+  componentDidMount() {
+    const axiosConfig = {
+			method: 'get',
+			url: `${this.props.globals.api}/subjects`
+		}
+    axios(axiosConfig)
+      .then(response => this.setState({ subjects: response.data }))
+      .catch(error => this.setState({ subjects: error }))
+  }
 	render() {
+		console.log(this.state.subjects)
 		return (
 			<div id="SubjectSelection" className="window">
 				
 				<div className="SubjectSelection_content">
-					<div className="SubjectSelection_title">Subjects</div>
-					<div className="SubjectSelection_subjects">
-						{subjects.map((subject, index) => <SubjectSelectionButton index={index} {...subject} />)}
+					<div className="SubjectSelection_title">
+						<i className="material-icons SubjectSelection_title-icon">list</i>
+						<span>Subjects</span>
 					</div>
+					{this.state.subjects === null ? <Loading /> : (
+						<div className="SubjectSelection_subjects">
+							{this.state.subjects.map((subject, index) => <SubjectSelectionButton index={index} {...subject} />)}
+						</div>
+					)}
 				</div>
 				
 			</div>
