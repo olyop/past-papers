@@ -16,12 +16,10 @@ import 'normalize.css/normalize.css'
 import './index.css'
 
 class Index extends React.Component {
-	
 	constructor(props) {
 		super(props)
 		this.state = { subject: null }
 	}
-	
 	render() {
 		if (this.state.subject === null) {
 			return <SubjectSelection globals={globals} />
