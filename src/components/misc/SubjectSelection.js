@@ -1,7 +1,6 @@
 import React from 'react'
 
 import axios from 'axios'
-import makeId from '../../functions/make-id'
 
 import Loading from '../common/Loading'
 
@@ -32,7 +31,7 @@ class SubjectSelectionButton extends React.Component {
 			</button>
 		)
 	}
-} 
+}
 
 class SubjectSelection extends React.Component {
 	constructor(props) {
@@ -52,7 +51,7 @@ class SubjectSelection extends React.Component {
 		console.log(this.state.subjects)
 		return (
 			<div id="SubjectSelection" className="window">
-				
+
 				<div className="SubjectSelection_content">
 					<div className="SubjectSelection_title">Please Choose a Subject</div>
 					{this.state.subjects === null ? <Loading /> : (
@@ -61,7 +60,7 @@ class SubjectSelection extends React.Component {
 						</div>
 					)}
 				</div>
-				
+
 			</div>
 		)
 	}
