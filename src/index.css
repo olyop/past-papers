@@ -13,5 +13,9 @@ body {
 
 .window {
 	width: 100vw;
-	height: 100vh;
+	height: 92vh; }
+
+@media (min-height: 1080px) {
+  .window {
+    height: 94vh; }
 }

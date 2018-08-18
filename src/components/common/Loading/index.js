@@ -1,6 +1,6 @@
 import React from 'react'
 
-import './Loading.css'
+import './index.css'
 
 const Loading = props => (
 	<div id="Loading">
