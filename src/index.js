@@ -3,73 +3,50 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import registerServiceWorker from './react/registerServiceWorker'
 
-// Import Globals
+// Import globals
 import globals from './globals'
 
 // Import functions
 import axios from 'axios'
 
-// Import Components
+// Import React-Router
 import { BrowserRouter, Route } from 'react-router-dom'
+
+// Import components
 import Header from './components/Header'
-import Loading from './components/common/Loading'
 import SubjectSelection from './components/SubjectSelection'
-import MathsAdvanced from './components/subjects/MathsAdvanced'
-import MathsExt1 from './components/subjects/MathsExt1'
-import MathsExt2 from './components/subjects/MathsExt2'
+import Subjects from './components/Subjects'
 
 // Import CSS
 import 'normalize.css/normalize.css'
 import './index.css'
-
-const Subjects = props => {
-	if (props.subjects === null) {
-		return <Loading />
-	} else if (props.subjects.constructor === Array) {
-		return (
-			<div>
-				{props.subjects.map(subject => (
-					<Route key={subject.key}
-						path={`/subjects/${subject.abbreviation}`}
-						render={({ match, location }) => {
-							if (subject.key === 'GKvfvjbZsc') {
-								return <MathsAdvanced />
-							} else if (subject.key === 'dhRkSziwwp') {
-								return <MathsExt1 />
-							} else if (subject.key === 'VeRLrzucwI') {
-								return <MathsExt2 />
-							}
-						}} />
-				))}
-			</div>
-		)
-	} else if (props.subjectsHasError) {
-		return <p>{props.subjects}</p>
-	}
-}
 
 class Index extends React.Component {
 	constructor(props) {
 		super(props)
 		this.state = {
 			subjects: null,
-			subjectsHasError: false
+			subjectsHasError: false,
+			hamburger: false
 		}
+		this.handleHamburger = this.handleHamburger.bind(this)
 	}
   componentDidMount() {
-    axios({
-			method: 'get',
-			url: `${this.props.globals.api}/subjects`
-		})
-		.then(response => this.setState({ subjects: response.data }))
-    .catch(error => this.setState({ subjects: error, subjectsError: true }))
+    axios({ url: `${this.props.globals.api}/subjects` })
+			.then(response => this.setState({ subjects: response.data }))
+    	.catch(error => this.setState({ subjects: error, subjectsError: true }))
   }
+	handleHamburger() {
+		this.setState({ hamburger: !this.state.hamburger })
+	}
 	render() {
 		return (
 			<BrowserRouter>
 				<div id="index">
 
-					<Header />
+					<Header globals={this.props.globals}
+						hamburger={this.state.hamburger}
+						handleHamburger={this.handleHamburger} />
 
 					<Route path="/" exact render={({ match, location }) => (
 						<SubjectSelection globals={this.props.globals}
