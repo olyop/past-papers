@@ -1,7 +1,12 @@
 import React from 'react'
 
 import axios from 'axios'
+<<<<<<< HEAD:src/components/SubjectSelection/SubjectSelection.js
 import Loading from '../common/Loading/Loading'
+=======
+
+import Loading from '../common/Loading'
+>>>>>>> eb62a5ccf0814be33872e947a710b89e1386f0da:src/components/misc/SubjectSelection.js
 
 import './SubjectSelection.css'
 
@@ -31,6 +36,7 @@ class Subject extends React.Component {
 		)
 	}
 }
+<<<<<<< HEAD:src/components/SubjectSelection/SubjectSelection.js
 
 const Subjects = props => {
 	if (props.subjects === null) {
@@ -45,6 +51,8 @@ const Subjects = props => {
 		return <p>{props.subjects}</p>
 	}
 }
+=======
+>>>>>>> eb62a5ccf0814be33872e947a710b89e1386f0da:src/components/misc/SubjectSelection.js
 
 class SubjectSelection extends React.Component {
 	constructor(props) {
@@ -65,6 +73,10 @@ class SubjectSelection extends React.Component {
 	render() {
 		return (
 			<div id="SubjectSelection" className="window">
+<<<<<<< HEAD:src/components/SubjectSelection/SubjectSelection.js
+=======
+
+>>>>>>> eb62a5ccf0814be33872e947a710b89e1386f0da:src/components/misc/SubjectSelection.js
 				<div className="SubjectSelection_content">
 
 					<div className="SubjectSelection_title">Please Choose a Subject</div>
@@ -75,6 +87,10 @@ class SubjectSelection extends React.Component {
 						subjectsError={this.state.subjectsError} />
 
 				</div>
+<<<<<<< HEAD:src/components/SubjectSelection/SubjectSelection.js
+=======
+
+>>>>>>> eb62a5ccf0814be33872e947a710b89e1386f0da:src/components/misc/SubjectSelection.js
 			</div>
 		)
 	}
