@@ -7,7 +7,7 @@ import registerServiceWorker from './react/registerServiceWorker'
 import globals from './globals'
 
 // Import Components
-import SubjectSelection from './components/misc/SubjectSelection'
+import SubjectSelection from './components/SubjectSelection/SubjectSelection'
 import MathsAdvanced from './components/subjects/MathsAdvanced/MathsAdvanced'
 import MathsExt1 from './components/subjects/MathsExt1/MathsExt1'
 
@@ -18,7 +18,9 @@ import './index.css'
 class Index extends React.Component {
 	constructor(props) {
 		super(props)
-		this.state = { subject: null }
+		this.state = {
+			subject: null
+		}
 	}
 	render() {
 		if (this.state.subject === null) {
