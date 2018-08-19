@@ -1,0 +1,15 @@
+.Subject-sub-title {
+  display: flex;
+  align-items: center;
+  padding-bottom: 30px; }
+  .Subject-sub-title-path,
+  .Subject-sub-title-hyphen,
+  .Subject-sub-title-updated {
+    font-size: 17px;
+    font-weight: 400; }
+  .Subject-sub-title-hyphen {
+    padding: 0 5px; }
+  .Subject-sub-title-path {
+    color: #BDBDBD; }
+  .Subject-sub-title-updated-underline {
+    text-decoration: underline; }

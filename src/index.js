@@ -13,6 +13,7 @@ import axios from 'axios'
 import { BrowserRouter, Route } from 'react-router-dom'
 
 // Import components
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import Header from './components/Header'
 import SubjectSelection from './components/SubjectSelection'
 import Subjects from './components/Subjects'
@@ -42,27 +43,30 @@ class Index extends React.Component {
 	render() {
 		return (
 			<BrowserRouter>
-				<div id="index">
+				<MuiThemeProvider>
+					<div id="index">
 
-					<Header globals={this.props.globals}
-						hamburger={this.state.hamburger}
-						handleHamburger={this.handleHamburger} />
+						<Header globals={this.props.globals}
+							hamburger={this.state.hamburger}
+							handleHamburger={this.handleHamburger} />
 
-					<Route path="/" exact render={({ match, location }) => (
-						<SubjectSelection globals={this.props.globals}
-							subjects={this.state.subjects}
-							subjectsHasError={this.state.subjectsHasError} />
-					)} />
-
-					<Route path="/subjects" render={({ match, location }) => (
-						<div className="window">
-							<Subjects globals={this.props.globals}
+						<Route path="/" exact render={({ match, location }) => (
+							<SubjectSelection globals={this.props.globals}
 								subjects={this.state.subjects}
 								subjectsHasError={this.state.subjectsHasError} />
-						</div>
-					)} />
+						)} />
 
-				</div>
+						<Route path="/subjects" render={({ match }) => (
+							<div className="window">
+								<Subjects globals={this.props.globals}
+									subjects={this.state.subjects}
+									subjectsHasError={this.state.subjectsHasError}
+									match={match} />
+							</div>
+						)} />
+
+					</div>
+				</MuiThemeProvider>
 			</BrowserRouter>
 		)
 	}
