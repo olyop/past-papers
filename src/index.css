@@ -13,7 +13,11 @@ body {
 
 .window {
 	width: 100vw;
-	height: 92vh; }
+	height: 92vh;
+	background-color: ##f2f2f2; }
+	.window #subjects {
+		width: 100%;
+		height: 100%;	}
 
 @media (min-height: 1080px) {
   .window {

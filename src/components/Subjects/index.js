@@ -8,12 +8,14 @@ import MathsAdvanced from './MathsAdvanced'
 import MathsExt1 from './MathsExt1'
 import MathsExt2 from './MathsExt2'
 
+import './index.css'
+
 const Subjects = props => {
 	if (props.subjects === null) {
 		return <Loading />
 	} else if (props.subjects.constructor === Array) {
 		return (
-			<div>
+			<div id="Subjects">
 				{props.subjects.map(subject => (
 					<Route key={subject.key}
 						path={`/subjects/${subject.abbreviation}`}

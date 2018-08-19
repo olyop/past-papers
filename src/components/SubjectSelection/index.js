@@ -39,16 +39,17 @@ const SubjectsList = props => {
 }
 
 const SubjectSelection = props => (
-	<div id="SubjectSelection"
-		className="window">
-		<div className="SubjectSelection_content">
+	<div className="window">
+		<div id="SubjectSelection">
+			<div className="SubjectSelection_content">
 
-			<div className="SubjectSelection_title">Please Choose a Subject</div>
+				<div className="SubjectSelection_title">Please Choose a Subject</div>
 
-			<SubjectsList globals={props.globals}
-				subjects={props.subjects}
-				subjectsHasError={props.subjectsHasError} />
+				<SubjectsList globals={props.globals}
+					subjects={props.subjects}
+					subjectsHasError={props.subjectsHasError} />
 
+			</div>
 		</div>
 	</div>
 )
