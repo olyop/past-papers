@@ -1,8 +1,9 @@
 {
-  "name": "test-54",
+  "name": "past-papers",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@material-ui/core": "^1.5.1",
     "axios": "^0.16.2",
     "bootstrap": "^3.3.7",
     "eslint-plugin-react": "^7.4.0",

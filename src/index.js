@@ -13,7 +13,6 @@ import axios from 'axios'
 import { BrowserRouter, Route } from 'react-router-dom'
 
 // Import components
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import Header from './components/Header'
 import SubjectSelection from './components/SubjectSelection'
 import Subjects from './components/Subjects'
@@ -40,7 +39,10 @@ class Index extends React.Component {
     	.catch(error => {
 				this.setState({
 					subjectsHasError: true,
-					subjectsError: { message: error.message, ...error }
+					subjectsError: {
+						message: error.message,
+						...error
+					}
 				})
 			})
   }
@@ -62,32 +64,30 @@ class Index extends React.Component {
 	render() {
 		return (
 			<BrowserRouter>
-				<MuiThemeProvider>
-					<div id="index">
+				<div id="index">
 
-						<Header globals={this.props.globals}
-							home={this.home}
-							hamburger={this.state.hamburger}
-							handleHamburger={this.handleHamburger} />
+					<Header globals={this.props.globals}
+						home={this.home}
+						hamburger={this.state.hamburger}
+						handleHamburger={this.handleHamburger} />
 
-						<div className="window">
-							<Route path="/" exact render={({ match, location }) => (
-								<SubjectSelection globals={this.props.globals}
-									subjects={this.state.subjects}
-									subjectsHasError={this.state.subjectsHasError}
-									subjectsError={this.state.subjectsError} />
-							)} />
-							<Route path="/subjects" render={({ match }) => (
-								<Subjects globals={this.props.globals}
-									subjects={this.state.subjects}
-									subjectsHasError={this.state.subjectsHasError}
-									subjectsError={this.state.subjectsError}
-									match={match} />
-							)} />
-						</div>
-
+					<div className="window">
+						<Route path="/" exact render={({ match, location }) => (
+							<SubjectSelection globals={this.props.globals}
+								subjects={this.state.subjects}
+								subjectsHasError={this.state.subjectsHasError}
+								subjectsError={this.state.subjectsError} />
+						)} />
+						<Route path="/subjects" render={({ match }) => (
+							<Subjects globals={this.props.globals}
+								subjects={this.state.subjects}
+								subjectsHasError={this.state.subjectsHasError}
+								subjectsError={this.state.subjectsError}
+								match={match} />
+						)} />
 					</div>
-				</MuiThemeProvider>
+
+				</div>
 			</BrowserRouter>
 		)
 	}

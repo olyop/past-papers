@@ -18,7 +18,7 @@
 			width: 100%;
 			justify-content: center;
 			padding-bottom: 10px;
-			border-bottom: 1px solid #BDBDBD;
+			border-bottom: 1px solid rgba(0,0,0,0.14);
 			margin-bottom: 20px;
 			font-weight: 400;
 			font-size: 23px; }

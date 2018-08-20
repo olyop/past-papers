@@ -1,6 +1,10 @@
 import React from 'react'
 
-import { Title, Heading1 } from '../../common/Styles'
+import { Title } from '../../common/Styles'
+import Paper from '@material-ui/core/Paper'
+import Typography from '@material-ui/core/Typography'
+import Tabs from '@material-ui/core/Tabs'
+import Tab from '@material-ui/core/Tab'
 
 import './index.css'
 
@@ -8,30 +12,48 @@ const SubjectSubTitle = props => (
   <div className="Subject-sub-title">
     <div className="Subject-sub-title-path">{props.path}</div>
     <div className="Subject-sub-title-hyphen">&#8211;</div>
-    <div className="Subject-sub-title-updated">Last Updated on the <span className="Subject-sub-title-updated-underline">{props.updated}</span></div>
+    <div className="Subject-sub-title-updated">Last Updated, <span className="Subject-sub-title-updated-underline">{props.updated}</span></div>
   </div>
 )
 
 class Subject extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { content1: true }
-    this.handleContent1 = this.handleContent1.bind(this)
+    this.state = {
+      tabValue: 0
+    }
+    this.handleTabChange = this.handleTabChange.bind(this)
   }
-  handleContent1() {
-    this.setState({ content1: !this.state.content1 })
+  handleTabChange(event, value) {
+    this.setState({ tabValue: value })
   }
   render() {
     return (
       <div className="Subject">
-        <Title style={{ paddingBottom: '8px' }}>
-          <span className="Subject-hsc">HSC</span>
-          {this.props.name}
-        </Title>
-        <SubjectSubTitle path={this.props.match.path} updated={this.props.updated} />
-        <Heading1 onClick={this.handleContent1}
-          active={this.state.content1}
-          subtitle="410 papers">Search</Heading1>
+
+        <div className="Subject-header">
+          <Title style={{ paddingBottom: '8px' }}>
+            <span className="Subject-hsc">HSC</span>
+            {this.props.name}
+          </Title>
+          <SubjectSubTitle path={this.props.match.path} updated={this.props.updated} />
+        </div>
+
+        <Paper square>
+          <Tabs value={this.state.tabValue}
+            onChange={this.handleTabChange}
+            indicatorColor="secondary"
+            textColor="secondary">
+            <Tab icon={<i className="material-icons Subject-tab-icon">question_answer</i>} label="QUESTIONS & SOLUTIONS" />
+            <Tab icon={<i className="material-icons Subject-tab-icon">insert_drive_file</i>} label="PAST PAPERS" />
+            <Tab icon={<i className="material-icons Subject-tab-icon">info</i>} label="ABOUT" />
+          </Tabs>
+        </Paper>
+
+        <Typography className="Subject-content">
+          Content
+        </Typography>
+
       </div>
     )
   }
