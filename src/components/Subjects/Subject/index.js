@@ -1,10 +1,7 @@
 import React from 'react'
 
 import { Title } from '../../common/Styles'
-import Paper from '@material-ui/core/Paper'
-import Typography from '@material-ui/core/Typography'
-import Tabs from '@material-ui/core/Tabs'
-import Tab from '@material-ui/core/Tab'
+import { NavLink } from 'react-router-dom'
 
 import './index.css'
 
@@ -19,9 +16,7 @@ const SubjectSubTitle = props => (
 class Subject extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {
-      tabValue: 0
-    }
+    this.state = { tabValue: 0 }
     this.handleTabChange = this.handleTabChange.bind(this)
   }
   handleTabChange(event, value) {
@@ -39,20 +34,18 @@ class Subject extends React.Component {
           <SubjectSubTitle path={this.props.match.path} updated={this.props.updated} />
         </div>
 
-        <Paper square>
-          <Tabs value={this.state.tabValue}
-            onChange={this.handleTabChange}
-            indicatorColor="secondary"
-            textColor="secondary">
-            <Tab icon={<i className="material-icons Subject-tab-icon">question_answer</i>} label="QUESTIONS & SOLUTIONS" />
-            <Tab icon={<i className="material-icons Subject-tab-icon">insert_drive_file</i>} label="PAST PAPERS" />
-            <Tab icon={<i className="material-icons Subject-tab-icon">info</i>} label="ABOUT" />
-          </Tabs>
-        </Paper>
-
-        <Typography className="Subject-content">
-          Content
-        </Typography>
+        <NavLink to={`${this.props.match.path}/questions`}>
+          <i className="material-icons Subject-tab-icon">question_answer</i>
+          <span>QUESTIONS</span>
+        </NavLink>
+        <NavLink to={`${this.props.match.path}/past-papers`}>
+          <i className="material-icons Subject-tab-icon">insert_drive_file</i>
+          <span>PAST PAPERS</span>
+        </NavLink>
+        <NavLink to={`${this.props.match.path}/about`}>
+          <i className="material-icons Subject-tab-icon">info</i>
+          <span>ABOUT</span>
+        </NavLink>
 
       </div>
     )
