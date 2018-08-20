@@ -19,7 +19,11 @@ const Header = props => {
   return (
     <div id="Header">
       <Hamburger hamburger={props.hamburger} handleHamburger={props.handleHamburger} />
-      <NavLink to="/" className="Header-logo">past-papers</NavLink>
+      <NavLink to="/"
+        onClick={() => props.home()}
+        className="Header-logo">
+        past-papers
+      </NavLink>
     </div>
   )
 }

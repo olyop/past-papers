@@ -2,14 +2,17 @@ import React from 'react'
 
 import { Route } from 'react-router-dom'
 import Loading from '../common/Loading'
+import AxiosError from '../common/AxiosError'
 
 import Subject from './Subject'
 
 import './index.css'
 
 const Subjects = props => {
-	if (props.subjects === null) {
-		return <Loading />
+	if (props.subjectsHasError) {
+		return <AxiosError {...props.subjectsError} />
+	} else if (props.subjects === null) {
+ 		return <Loading />
 	} else if (props.subjects.constructor === Array) {
 		return (
 			<div id="Subjects">
@@ -23,8 +26,6 @@ const Subjects = props => {
 				))}
 			</div>
 		)
-	} else if (props.subjectsHasError) {
-		return <p>{props.subjects}</p>
 	}
 }
 

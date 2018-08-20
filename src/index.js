@@ -28,15 +28,34 @@ class Index extends React.Component {
 		this.state = {
 			subjects: null,
 			subjectsHasError: false,
+			subjectsError: {},
 			hamburger: false
 		}
+		this.home = this.home.bind(this)
 		this.handleHamburger = this.handleHamburger.bind(this)
 	}
   componentDidMount() {
     axios({ url: `${this.props.globals.api}/subjects` })
 			.then(response => this.setState({ subjects: response.data }))
-    	.catch(error => this.setState({ subjects: error, subjectsError: true }))
+    	.catch(error => {
+				this.setState({
+					subjectsHasError: true,
+					subjectsError: { message: error.message, ...error }
+				})
+			})
   }
+	home() {
+		let haveSubjectsLoaded = this.state.subjectsHasError ? false : true
+		this.setState({
+			subjects: haveSubjectsLoaded ? this.state.subjects : null,
+			subjectsHasError: false,
+			subjectsError: {},
+			hamburger: false
+		})
+		if (!haveSubjectsLoaded) {
+			this.componentDidMount()
+		}
+	}
 	handleHamburger() {
 		this.setState({ hamburger: !this.state.hamburger })
 	}
@@ -47,23 +66,25 @@ class Index extends React.Component {
 					<div id="index">
 
 						<Header globals={this.props.globals}
+							home={this.home}
 							hamburger={this.state.hamburger}
 							handleHamburger={this.handleHamburger} />
 
-						<Route path="/" exact render={({ match, location }) => (
-							<SubjectSelection globals={this.props.globals}
-								subjects={this.state.subjects}
-								subjectsHasError={this.state.subjectsHasError} />
-						)} />
-
-						<Route path="/subjects" render={({ match }) => (
-							<div className="window">
+						<div className="window">
+							<Route path="/" exact render={({ match, location }) => (
+								<SubjectSelection globals={this.props.globals}
+									subjects={this.state.subjects}
+									subjectsHasError={this.state.subjectsHasError}
+									subjectsError={this.state.subjectsError} />
+							)} />
+							<Route path="/subjects" render={({ match }) => (
 								<Subjects globals={this.props.globals}
 									subjects={this.state.subjects}
 									subjectsHasError={this.state.subjectsHasError}
+									subjectsError={this.state.subjectsError}
 									match={match} />
-							</div>
-						)} />
+							)} />
+						</div>
 
 					</div>
 				</MuiThemeProvider>

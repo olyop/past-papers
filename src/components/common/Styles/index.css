@@ -14,31 +14,8 @@
   font-weight: 400; }
 
 .Styles_heading-1 {
-  border-bottom: 2px solid #E0E0E0;
-  padding-bottom: 5px;
-	display: flex;
-	align-items: center;
-	justify-content: flex-start;
-  margin: 0 0 10px 0; }
-  .Styles_heading-1 i {
-		cursor: pointer;
-		padding: 3px;
-    font-size: 30px;
-		border-radius: 100%; }
-	.Styles_heading-1 .heading-content {
-		display: flex;
-		align-items: flex-start;
-		flex-direction: column; }
-		.Styles_heading-1 .heading-content .heading-heading {
-			margin: 0;
-			cursor: text;
-			font-weight: 600;
-			font-size: 28px; }
-		.Styles_heading-1 .heading-content .heading-subtitle {
-			font-weight: 400;
-			margin-top: -3px;
-			font-size: 15px;
-			color: #9E9E9E; }
+  
+}
 
 .Styles_heading-2 {
   padding: 0 0 20px 0;
