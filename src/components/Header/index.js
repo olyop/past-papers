@@ -7,8 +7,8 @@ import './hamburger/hamburgers.min.css'
 import './index.css'
 
 const Hamburger = props => (
-  <button onClick={() => props.handleHamburger()}
-    className={`hamburger hamburger--boring ${props.hamburger ? 'is-active ' : ''}Header-hamburger`} type="button">
+  <button onClick={() => props.handleMenu()}
+    className={`hamburger hamburger--boring ${props.menu ? 'is-active ' : ''}Header-hamburger`} type="button">
     <span className="hamburger-box">
       <span className="hamburger-inner"></span>
     </span>
@@ -18,7 +18,7 @@ const Hamburger = props => (
 const Header = props => {
   return (
     <div id="Header">
-      <Hamburger hamburger={props.hamburger} handleHamburger={props.handleHamburger} />
+      <Hamburger menu={props.menu} handleMenu={props.handleMenu} />
       <NavLink to="/"
         onClick={() => props.home()}
         className="Header-logo">

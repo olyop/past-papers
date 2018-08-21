@@ -1,7 +1,8 @@
 import React from 'react'
 
-import { Title } from '../../common/Styles'
 import { NavLink } from 'react-router-dom'
+import { Title } from '../../common/Styles'
+import Search from './Search'
 
 import './index.css'
 
@@ -36,8 +37,7 @@ class Subject extends React.Component {
               key={index}
               to={`${this.props.match.path}/${page.path}`}
               className="Subject__nav-item"
-              activeClassName="Subject__nav-item-active"
-            >
+              activeClassName="Subject__nav-item-active">
               <i className="material-icons Subject__tab-icon">{page.icon}</i>
               {page.name}
             </NavLink>
@@ -45,7 +45,8 @@ class Subject extends React.Component {
         </div>
 
         <div className="Subject__content">
-          Content
+          <Search
+            globals={this.props.globals} />
         </div>
 
       </div>

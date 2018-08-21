@@ -12,11 +12,13 @@ body {
 		margin: 0; }
 
 .window {
-	width: 100vw;
-	height: 92vh; }
-	.window #subjects {
-		width: 100%;
-		height: 100%;	}
+	display: flex;
+	align-items: flex-start; }
+	.content {
+		width: 100vw;
+		height: 92vh; }
+	.content-menu-active {
+		width: calc(100vw - 250px); }
 
 @media (min-height: 1080px) {
   .window {

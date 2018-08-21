@@ -15,7 +15,7 @@ const Subjects = props => {
  		return <Loading />
 	} else if (props.subjects.constructor === Array) {
 		return (
-			<div id="Subjects">
+			<div className="Subjects">
 				{props.subjects.map(subject => (
 					<Route key={subject.key}
 						path={`${props.match.path}/${subject.abbreviation}`}

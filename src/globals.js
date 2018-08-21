@@ -4,6 +4,7 @@ const globals = {
 	subjectPages: [
 		{ name: 'QUESTIONS', icon: 'question_answer', path: 'questions' },
 		{ name: 'PAST PAPERS', icon: 'insert_drive_file', path: 'past-papers' },
+		{ name: 'RESOURCES', icon: 'book', path: 'resources' },
 		{ name: 'ABOUT', icon: 'info', path: 'about' }
 	]
 }

@@ -30,7 +30,6 @@
     .Subject__nav-item {
       display: flex;
       align-items: center;
-      width: 150px;
       justify-content: center;
       transition: .2s all;
       border-bottom: 3px solid;
