@@ -20,7 +20,9 @@ const Subjects = props => {
 					<Route key={subject.key}
 						path={`${props.match.path}/${subject.abbreviation}`}
 						render={({ match }) => (
-							<Subject {...subject}
+							<Subject
+								globals={props.globals}
+								subject={subject}
 								match={match} />
 						)} />
 				))}

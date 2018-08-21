@@ -5,14 +5,6 @@ import { NavLink } from 'react-router-dom'
 
 import './index.css'
 
-const SubjectSubTitle = props => (
-  <div className="Subject-sub-title">
-    <div className="Subject-sub-title-path">{props.path}</div>
-    <div className="Subject-sub-title-hyphen">&#8211;</div>
-    <div className="Subject-sub-title-updated">Last Updated, <span className="Subject-sub-title-updated-underline">{props.updated}</span></div>
-  </div>
-)
-
 class Subject extends React.Component {
   constructor(props) {
     super(props)
@@ -26,26 +18,35 @@ class Subject extends React.Component {
     return (
       <div className="Subject">
 
-        <div className="Subject-header">
+        <div className="Subject__header">
           <Title style={{ paddingBottom: '8px' }}>
-            <span className="Subject-hsc">HSC</span>
-            {this.props.name}
+            <span className="Subject__hsc">HSC</span>
+            {this.props.subject.name}
           </Title>
-          <SubjectSubTitle path={this.props.match.path} updated={this.props.updated} />
+          <div className="Subject__sub-title">
+            <div className="Subject__sub-title-path">{this.props.match.path}</div>
+            <div className="Subject__sub-title-hyphen">&#8211;</div>
+            <div className="Subject__sub-title-updated">Last Updated, <span className="Subject__sub-title-updated-underline">{this.props.subject.updated}</span></div>
+          </div>
         </div>
 
-        <NavLink to={`${this.props.match.path}/questions`}>
-          <i className="material-icons Subject-tab-icon">question_answer</i>
-          <span>QUESTIONS</span>
-        </NavLink>
-        <NavLink to={`${this.props.match.path}/past-papers`}>
-          <i className="material-icons Subject-tab-icon">insert_drive_file</i>
-          <span>PAST PAPERS</span>
-        </NavLink>
-        <NavLink to={`${this.props.match.path}/about`}>
-          <i className="material-icons Subject-tab-icon">info</i>
-          <span>ABOUT</span>
-        </NavLink>
+        <div className="Subject__nav">
+          {this.props.globals.subjectPages.map((page, index) => (
+            <NavLink
+              key={index}
+              to={`${this.props.match.path}/${page.path}`}
+              className="Subject__nav-item"
+              activeClassName="Subject__nav-item-active"
+            >
+              <i className="material-icons Subject__tab-icon">{page.icon}</i>
+              {page.name}
+            </NavLink>
+          ))}
+        </div>
+
+        <div className="Subject__content">
+          Content
+        </div>
 
       </div>
     )
