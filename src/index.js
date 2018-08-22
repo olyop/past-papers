@@ -67,36 +67,28 @@ class Index extends React.Component {
 			<BrowserRouter>
 				<div id="index">
 
-					<Header
-						globals={this.props.globals}
+					<Header globals={this.props.globals}
 						home={this.home}
 						menu={this.state.menu}
-						handleMenu={this.handleMenu}
-					/>
+						handleMenu={this.handleMenu} />
 
 					<div className="window">
 						{this.state.menu ? (
-							<Menu
-								globals={this.props.globals}
-							/>
+							<Menu globals={this.props.globals} />
 						) : null}
 						<div className={`content${this.state.menu ? ' content-menu-active' : ''}`}>
 							<Route path="/" exact render={({ match, location }) => (
-								<SubjectSelection
-									globals={this.props.globals}
+								<SubjectSelection globals={this.props.globals}
 									subjects={this.state.subjects}
 									subjectsHasError={this.state.subjectsHasError}
-									subjectsError={this.state.subjectsError}
-								/>
+									subjectsError={this.state.subjectsError} />
 							)} />
 							<Route path="/subjects" render={({ match }) => (
-								<Subjects
-									globals={this.props.globals}
+								<Subjects globals={this.props.globals}
 									subjects={this.state.subjects}
 									subjectsHasError={this.state.subjectsHasError}
 									subjectsError={this.state.subjectsError}
-									match={match}
-								/>
+									match={match} />
 							)} />
 						</div>
 					</div>
