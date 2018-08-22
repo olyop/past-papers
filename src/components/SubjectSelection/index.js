@@ -7,7 +7,7 @@ import { NavLink } from 'react-router-dom'
 import './index.css'
 
 const SubjectSelectionSubject = props => (
-	<NavLink to={`/subjects/${props.abbreviation}/${props.globals.subjectPages[0].path}`}
+	<NavLink to={`/subjects/${props.abbreviation}`}
 		className="SubjectSelection__subject">
 		<span className="SubjectSelection__list">{props.index + 1}.</span>
 		<div className="SubjectSelection__subject-info">
@@ -29,7 +29,7 @@ const SubjectSelection = props => {
 		return <Loading />
 	} else if (props.subjects.constructor === Array) {
 		return (
-			<div className="SubjectSelection">
+			<div id="SubjectSelection">
 				<div className="SubjectSelection__content">
 					<div className="SubjectSelection__title">Please Choose a Subject</div>
 					<div className="SubjectSelection__subjects">

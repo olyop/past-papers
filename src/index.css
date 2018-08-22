@@ -21,6 +21,6 @@ body {
 		width: calc(100vw - 250px); }
 
 @media (min-height: 1080px) {
-  .window {
+  .content {
     height: 94vh; }
 }

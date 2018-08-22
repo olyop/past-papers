@@ -4,10 +4,7 @@ import './index.css'
 
 const Menu = props => {
   return (
-    <div className="Menu">
-      <div className="Menu__inner">
-      </div>
-    </div>
+    <div className="Menu"></div>
   )
 }
 

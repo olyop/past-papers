@@ -35,11 +35,13 @@ class Subject extends React.Component {
           {this.props.globals.subjectPages.map((page, index) => (
             <NavLink
               key={index}
-              to={`${this.props.match.path}/${page.path}`}
+              to={`${this.props.match.path}${page.path}`}
+              exact
               className="Subject__nav-item"
-              activeClassName="Subject__nav-item-active">
-              <i className="material-icons Subject__tab-icon">{page.icon}</i>
-              {page.name}
+              activeClassName="Subject__nav-item-active"
+            >
+              <i className="material-icons Subject__nav-item-icon">{page.icon}</i>
+              {page.name === '' ? null : <span className="Subject__nav-item-text">{page.name}</span>}
             </NavLink>
           ))}
         </div>
