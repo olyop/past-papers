@@ -1,14 +1,16 @@
-#Loading {
+.Loading {
 	width: 100%;
 	height: 100%;
 	display: flex;
+	background-color: #f5f5f5;
 	align-items: center;
+	flex-direction: column;
 	justify-content: center; }
-	.Loading_ring {
+	.Loading .Loading__ring {
 		display: inline-block;
 		width: 80px;
 		height: 80px; }
-		.Loading_ring:after {
+		.Loading .Loading__ring:after {
 			content: " ";
 			display: block;
 			width: 80px;
@@ -18,6 +20,9 @@
 			border: 5px solid #333;
 			border-color: #333 transparent #ff5252 transparent;
 			animation: lds-dual-ring 1.2s linear infinite; }
+	.Loading .Loading__text {
+		font-size: 18px;
+		margin-top: 40px; }
 
 @keyframes lds-dual-ring {
   0% { transform: rotate(0deg); }

@@ -7,22 +7,22 @@
   height: calc(8vh - 1px);
   background-color: #fff;
   border-bottom: 1px solid rgba(0,0,0,0.14); }
-  #Header .Header-hamburger {
+  #Header .Header__hamburger {
     margin: 15px 25px 10px 15px;
     outline: none;
     padding: 0; }
-    #Header .Header-hamburger:hover {
+    #Header .Header__hamburger:hover {
       opacity: 1; }
-    #Header .Header-hamburger .hamburger-inner,
-    #Header .Header-hamburger .hamburger-inner:before,
-    #Header .Header-hamburger .hamburger-inner:after {
+    #Header .Header__hamburger .hamburger-inner,
+    #Header .Header__hamburger .hamburger-inner:before,
+    #Header .Header__hamburger .hamburger-inner:after {
       height: 2px;
       background-color: rgba(0,0,0,0.54); }
-      #Header .Header-hamburger:hover .hamburger-inner,
-      #Header .Header-hamburger:hover .hamburger-inner:before,
-      #Header .Header-hamburger:hover .hamburger-inner:after {
+      #Header .Header__hamburger:hover .hamburger-inner,
+      #Header .Header__hamburger:hover .hamburger-inner:before,
+      #Header .Header__hamburger:hover .hamburger-inner:after {
         background-color: rgba(0,0,0,0.7); }
-  #Header .Header-logo {
+  #Header .Header__logo {
     display: block;
     margin-top: -8px;
     padding: 0;
@@ -32,7 +32,7 @@
     font-family: 'dm';
     font-style: italic;;
     font-weight: 500; }
-    #Header .Header-logo:hover {
+    #Header .Header__logo:hover {
       color: #2979FF;
       text-decoration: underline; }
 

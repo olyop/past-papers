@@ -13,7 +13,6 @@ export default class Search extends React.Component {
       <div className="Search">
         <div className="Search__bar">
           <Input
-            id="input-with-icon-adornment"
             onChange={this.props.handleSearch}
             value={this.props.search}
             placeholder="Search questions..."
@@ -30,8 +29,8 @@ export default class Search extends React.Component {
             }
           />
         </div>
-        <div className="col-md-12 Search__content">
-          <Paper classes={{ root: 'col-md-12' }}>Search Content</Paper>
+        <div className="Search__content">
+          
         </div>
       </div>
     )

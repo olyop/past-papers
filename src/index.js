@@ -23,17 +23,16 @@ import 'normalize.css/normalize.css'
 import './index.css'
 
 class Index extends React.Component {
-	constructor(props) {
-		super(props)
-		this.state = {
-			subjects: null,
-			subjectsHasError: false,
-			subjectsError: {},
-			menu: false
-		}
-		this.home = this.home.bind(this)
-		this.handleMenu = this.handleMenu.bind(this)
+
+	state = {
+		subjects: null,
+		subjectsHasError: false,
+		subjectsError: {},
+		menu: false
 	}
+	home = this.home.bind(this)
+	handleMenu = this.handleMenu.bind(this)
+
   componentDidMount() {
     axios({ url: `${this.props.globals.api}/subjects` })
 			.then(response => this.setState({ subjects: response.data }))
@@ -67,28 +66,37 @@ class Index extends React.Component {
 			<BrowserRouter>
 				<div id="index">
 
-					<Header globals={this.props.globals}
+					<Header
+						globals={this.props.globals}
 						home={this.home}
 						menu={this.state.menu}
-						handleMenu={this.handleMenu} />
+						handleMenu={this.handleMenu}
+					/>
 
 					<div className="window">
 						{this.state.menu ? (
-							<Menu globals={this.props.globals} />
+							<Menu
+								globals={this.props.globals}
+								handleMenu={this.handleMenu}
+							/>
 						) : null}
 						<div className={`content${this.state.menu ? ' content-menu-active' : ''}`}>
 							<Route path="/" exact render={({ match, location }) => (
-								<SubjectSelection globals={this.props.globals}
-									subjects={this.state.subjects}
-									subjectsHasError={this.state.subjectsHasError}
-									subjectsError={this.state.subjectsError} />
-							)} />
-							<Route path="/subjects" render={({ match }) => (
-								<Subjects globals={this.props.globals}
+								<SubjectSelection
+									globals={this.props.globals}
 									subjects={this.state.subjects}
 									subjectsHasError={this.state.subjectsHasError}
 									subjectsError={this.state.subjectsError}
-									match={match} />
+								/>
+							)} />
+							<Route path="/subjects" render={({ match }) => (
+								<Subjects
+									globals={this.props.globals}
+									subjects={this.state.subjects}
+									subjectsHasError={this.state.subjectsHasError}
+									subjectsError={this.state.subjectsError}
+									match={match}
+								/>
 							)} />
 						</div>
 					</div>

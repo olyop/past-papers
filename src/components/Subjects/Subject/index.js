@@ -7,20 +7,17 @@ import Search from './Search'
 import './index.css'
 
 class Subject extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      search: ''
-    }
-    this.handleSearch = this.handleSearch.bind(this)
-  }
+
+  state = { search: '' }
+  handleSearch = this.handleSearch.bind(this)
+
   handleSearch(event) {
     this.setState({ search: event.target.value })
   }
   render() {
     return (
       <div className="Subject">
-
+        
         <div className="Subject__header">
           <Title style={{ paddingBottom: '8px' }}>
             <span className="Subject__hsc">HSC</span>

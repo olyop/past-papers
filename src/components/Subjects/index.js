@@ -12,7 +12,7 @@ const Subjects = props => {
 	if (props.subjectsHasError) {
 		return <AxiosError {...props.subjectsError} />
 	} else if (props.subjects === null) {
- 		return <Loading />
+ 		return <Loading text="Loading database..." />
 	} else if (props.subjects.constructor === Array) {
 		return (
 			<div id="Subjects">
