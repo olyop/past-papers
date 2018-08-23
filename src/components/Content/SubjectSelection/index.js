@@ -1,7 +1,4 @@
 import React from 'react'
-
-import Loading from '../common/Loading'
-import AxiosError from '../common/AxiosError'
 import { NavLink } from 'react-router-dom'
 
 import './index.css'
@@ -21,26 +18,18 @@ const SubjectSelectionSubject = props => (
 	</NavLink>
 )
 
-const SubjectSelection = props => {
-	if (props.subjectsHasError) {
-		return <AxiosError {...props.subjectsError} />
-	} else if (props.subjects === null) {
-		return <Loading text="Loading database..." />
-	} else if (props.subjects.constructor === Array) {
-		return (
-			<div id="SubjectSelection">
-				<div className="SubjectSelection__content">
-					<div className="SubjectSelection__title">Please Choose a Subject</div>
-					<div className="SubjectSelection__subjects">
-						{props.subjects.map((subject, index) => (
-							<SubjectSelectionSubject globals={props.globals}
-								{...subject} />
-						))}
-					</div>
-				</div>
+const SubjectSelection = props => (
+	<div id="SubjectSelection">
+		<div className="SubjectSelection__content">
+			<div className="SubjectSelection__title">Please Choose a Subject</div>
+			<div className="SubjectSelection__subjects">
+				{props.subjects.map((subject, index) => (
+					<SubjectSelectionSubject globals={props.globals}
+						{...subject} />
+				))}
 			</div>
-		)
-	}
-}
+		</div>
+	</div>
+)
 
 export default SubjectSelection

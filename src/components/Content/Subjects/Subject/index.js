@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { NavLink, Route } from 'react-router-dom'
-import { Title } from '../../common/Styles'
+import { Title } from '../../../common/Styles'
 import Search from './Search'
 
 import './index.css'
@@ -17,7 +17,7 @@ class Subject extends React.Component {
   render() {
     return (
       <div className="Subject">
-        
+
         <div className="Subject__header">
           <Title style={{ paddingBottom: '8px' }}>
             <span className="Subject__hsc">HSC</span>

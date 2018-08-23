@@ -10,13 +10,12 @@ import globals from './globals'
 import axios from 'axios'
 
 // Import React-Router
-import { BrowserRouter, Route } from 'react-router-dom'
+import { BrowserRouter } from 'react-router-dom'
 
 // Import components
 import Header from './components/Header'
 import Menu from './components/Menu'
-import SubjectSelection from './components/SubjectSelection'
-import Subjects from './components/Subjects'
+import Content from './components/Content'
 
 // Import CSS
 import 'normalize.css/normalize.css'
@@ -80,25 +79,13 @@ class Index extends React.Component {
 								handleMenu={this.handleMenu}
 							/>
 						) : null}
-						<div className={`content${this.state.menu ? ' content-menu-active' : ''}`}>
-							<Route path="/" exact render={({ match, location }) => (
-								<SubjectSelection
-									globals={this.props.globals}
-									subjects={this.state.subjects}
-									subjectsHasError={this.state.subjectsHasError}
-									subjectsError={this.state.subjectsError}
-								/>
-							)} />
-							<Route path="/subjects" render={({ match }) => (
-								<Subjects
-									globals={this.props.globals}
-									subjects={this.state.subjects}
-									subjectsHasError={this.state.subjectsHasError}
-									subjectsError={this.state.subjectsError}
-									match={match}
-								/>
-							)} />
-						</div>
+						<Content
+							globals={this.props.globals}
+	            subjects={this.state.subjects}
+	            subjectsHasError={this.state.subjectsHasError}
+	            subjectsError={this.state.subjectsError}
+							menu={this.state.menu}
+						/>
 					</div>
 
 				</div>
