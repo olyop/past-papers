@@ -5,7 +5,7 @@ body {
 	margin: 0;
 	border: 0;
 	padding: 0; }
-	body, h1, h2, h3, h4, h5 h6, p, i, a, bold, span, strong, div, section, nav, aside, button {
+	body, h1, h2, h3, h4, h5 h6, p, i, a, bold, span, strong, div, section, nav, aside, button, input {
 		font-family: 'Roboto', sans-serif;
 		text-decoration: none;
 		color: #333;

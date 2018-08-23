@@ -4,16 +4,16 @@
 	height: 100%;
   align-items: center;
 	justify-content: center; }
-	.SubjectSelection__content {
+	#SubjectSelection .SubjectSelection__content {
 		border-radius: 100%;
 		display: flex;
 		flex-direction: column;
-		width: 40vw;
+		width: 50vw;
 		align-items: center;
 		background-color: #FAFAFA;
 		box-shadow: 10px 10px 150px 8vw #FAFAFA;
 		padding: 90px 160px; }
-		.SubjectSelection__title {
+		#SubjectSelection .SubjectSelection__title {
 			display: flex;
 			width: 100%;
 			justify-content: center;
@@ -22,13 +22,13 @@
 			margin-bottom: 20px;
 			font-weight: 400;
 			font-size: 23px; }
-		.SubjectSelection__subjects {
+		#SubjectSelection .SubjectSelection__subjects {
 			display: flex;
 			flex-direction: column;
 			width: 100%;
 			justify-content: center;
 			align-items: center; }
-			.SubjectSelection__subject {
+			#SubjectSelection .SubjectSelection__subject {
 				z-index: 1;
 				width: 100%;
 				display: flex;
@@ -39,32 +39,32 @@
 				padding: 15px 20px;
 				border: 1px solid #FAFAFA;
 				outline: none; }
-				.SubjectSelection__list {
+				#SubjectSelection .SubjectSelection__list {
 					font-weight: 700;
 					font-size: 21px;
 					padding-right: 15px !important;
 					font-weight: 400; }
-				.SubjectSelection__subject-info {
+				#SubjectSelection .SubjectSelection__subject-info {
 					display: flex;
 					justify-content: flex-start;
 					align-items: center;
 					flex-direction: row; }
-					.SubjectSelection__subject-text {
+					#SubjectSelection .SubjectSelection__subject-text {
 						display: flex;
 						justify-content: center;
 						flex-direction: column;	}
-						.SubjectSelection__subject-name {
+						#SubjectSelection .SubjectSelection__subject-name {
 							font-weight: 700;
 							font-size: 21px;
 							text-align: left; }
-							.SubjectSelection__hsc {
+							#SubjectSelection .SubjectSelection__hsc {
 								padding-right: 5px;
 								color: #ff5252;
 								font-weight: 300; }
-						.SubjectSelection__updated {
+						#SubjectSelection .SubjectSelection__updated {
 							font-size: 15px;
 							font-weight: 400;
 							text-align: left; }
-				.SubjectSelection__subject:hover {
+			#SubjectSelection 	.SubjectSelection__subject:hover {
 					z-index: 2;
 					border-color: #bdbdbd; }

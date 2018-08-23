@@ -1,64 +1,76 @@
 .Subject {}
-  .Subject__header {
+  .Subject .Subject__header {
     background-color: #fff;
     border-bottom: 1px solid rgba(0,0,0,0.14);
     padding: 25px; }
-    .Subject__hsc {
+    .Subject .Subject__hsc {
       font-weight: 300;
       padding-right: 10px;
       color: #ff5252; }
-    .Subject__sub-title {
+    .Subject .Subject__sub-title {
       display: flex;
       align-items: center; }
-      .Subject__sub-title-path,
-      .Subject__sub-title-hyphen,
-      .Subject__sub-title-updated {
+      .Subject .Subject__sub-title-path,
+      .Subject .Subject__sub-title-hyphen,
+      .Subject .Subject__sub-title-updated {
         font-size: 15px;
         font-weight: 400; }
-      .Subject__sub-title-hyphen {
+      .Subject .Subject__sub-title-hyphen {
         padding: 0 5px; }
-      .Subject__sub-title-path {
+      .Subject .Subject__sub-title-path {
         color: #BDBDBD; }
-      .Subject__sub-title-updated-underline {
+      .Subject .Subject__sub-title-updated-underline {
         text-decoration: underline; }
-  .Subject__nav {
+  .Subject .Subject__nav {
     background-color: #fff;
     border-bottom: 1px solid rgba(0,0,0,0.14);
     display: flex;
     justify-content: center;
     align-items: center; }
-    .Subject__nav-item {
+    .Subject .Subject__nav-item {
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: .2s all;
+      transition: .3s all;
       border-bottom: 3px solid;
       border-color: transparent;
-      padding: 10px 15px 7px 15px; }
-      .Subject__nav .Subject__nav-item:hover {
+      padding: 15px 10px 14px 10px; }
+      .Subject .Subject__nav .Subject__nav-item:hover {
         background-color: #EEEEEE; }
-      .Subject__nav-item-active {
+      .Subject .Subject__nav-item-icon {
+        font-size: 20px; }
+      .Subject .Subject__nav-item-text {
+        padding-left: 10px;
+        font-weight: 400;
+        font-size: 14px; }
+      .Subject .Subject__nav-item-active {
         color: #ff5252;
         border-color: #ff5252 !important; }
-        .Subject__nav-item-active .Subject__tab-icon {
+        .Subject .Subject__nav-item-active .Subject__nav-item-icon {
           color: #ff5252; }
-      .Subject__nav-item-icon {
-        font-size: 23px; }
-      .Subject__nav-item-text {
-        padding-left: 10px;
-        font-size: 14px; }
-  .Subject__content {
-    padding: 30px;
+        .Subject .Subject__nav-item-active .Subject__nav-item-text {
+          color: #ff5252; }
+  .Subject .Subject__content {
+    padding: 25px;
     z-index: 3; }
 
-@media (min-width: 1100px) {
-  .Subject__nav-item {
-    padding: 15px 20px 12px 20px; }
-    .Subject__nav-item-text {
-      font-size: 16px; }
-  .Subject__sub-title-path,
-  .Subject__sub-title-hyphen,
-  .Subject__sub-title-updated {
+  @media (min-width: 900px) {
+    .Subject .Subject__nav-item {
+      padding: 15px 15px 14px 15px; }
+      .Subject .Subject__nav-item-icon {
+        font-size: 23px; }
+      .Subject .Subject__nav-item-text {
+        font-size: 14px; }
+  }
+
+@media (min-width: 1000px) {
+  .Subject .Subject__sub-title-path,
+  .Subject .Subject__sub-title-hyphen,
+  .Subject .Subject__sub-title-updated {
     font-size: 17px;
     font-weight: 400; }
+  .Subject .Subject__nav-item {
+    padding: 15px 20px 14px 20px; }
+    .Subject .Subject__nav-item-text {
+      font-size: 16px; }
 }

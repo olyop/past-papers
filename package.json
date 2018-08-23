@@ -5,10 +5,8 @@
   "dependencies": {
     "@material-ui/core": "^1.5.1",
     "axios": "^0.16.2",
-    "bootstrap": "^3.3.7",
     "eslint-plugin-react": "^7.4.0",
     "lodash": "^4.17.4",
-    "material-ui": "^0.20.2",
     "moment": "^2.18.1",
     "normalize.css": "^7.0.0",
     "react": "^16.0.0",

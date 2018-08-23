@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { NavLink } from 'react-router-dom'
+import { NavLink, Route } from 'react-router-dom'
 import { Title } from '../../common/Styles'
 import Search from './Search'
 
@@ -9,11 +9,13 @@ import './index.css'
 class Subject extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { tabValue: 0 }
-    this.handleTabChange = this.handleTabChange.bind(this)
+    this.state = {
+      search: ''
+    }
+    this.handleSearch = this.handleSearch.bind(this)
   }
-  handleTabChange(event, value) {
-    this.setState({ tabValue: value })
+  handleSearch(event) {
+    this.setState({ search: event.target.value })
   }
   render() {
     return (
@@ -47,8 +49,14 @@ class Subject extends React.Component {
         </div>
 
         <div className="Subject__content">
-          <Search
-            globals={this.props.globals} />
+          <Route
+						path={`${this.props.match.path}/questions`}
+						render={({ match }) => (
+							<Search
+								globals={this.props.globals}
+                search={this.state.search}
+								handleSearch={this.handleSearch} />
+						)} />
         </div>
 
       </div>

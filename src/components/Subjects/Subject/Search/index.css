@@ -1,0 +1,21 @@
+.Search {}
+  .Search .Search__bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px; }
+    .Search .Search__bar-inner {
+      outline: none;
+      width: 40vw; }
+      .Search .Search__icon {
+        margin: 0 0 0 -4px;
+        padding: 13px 10px 0 0; }
+        .Search .Search__icon span {
+          font-size: 33px !important; }
+      .Search .Search__bar .Search__underline {
+        border-color: #333 ; }
+      .Search .Search__input {
+        padding: 15px 0;
+        font-size: 20px; }
+      .Search .Search__input-underline {
+        color: #ff5252; }
