@@ -20,7 +20,7 @@
           padding: 3px; }
           .Search .Search__icon-close-icon {
             font-size: 27px; }
-      .Search .Search__bar .Search__underline {
+      .Search .Search__bar .Search__underline:after {
         border-color: #333 ; }
       .Search .Search__input {
         padding: 15px 0;

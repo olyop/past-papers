@@ -16,9 +16,9 @@ const Search = props => {
           value={props.search}
           placeholder="Search questions..."
           classes={{
-            input: 'Search__input',
-            root: 'Search__bar-inner',
-            underline: 'Search__underline'
+              input: 'Search__input',
+              root: 'Search__bar-inner',
+              underline: 'Search__underline'
           }}
           startAdornment={
             <InputAdornment classes={{ root: 'Search__icon-search' }}>
