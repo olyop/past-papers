@@ -4,7 +4,7 @@
   padding: 0 10px;
   align-items: center;
   width: calc(100% - 20px);
-  height: calc(8vh - 1px);
+  height: 69px;
   background-color: #fff;
   border-bottom: 1px solid rgba(0,0,0,0.14); }
   #Header .Header__hamburger {
@@ -34,8 +34,3 @@
     font-weight: 500; }
     #Header .Header__logo:hover {
       text-decoration: underline; }
-
-@media (min-height: 1080px) {
-  #Header {
-    height: calc(6vh - 1px); }
-}

@@ -16,7 +16,7 @@ body {
 	align-items: flex-start; }
 	.content {
 		width: 100vw;
-		height: 92vh; }
+		height: calc(100vh - 70px); }
 	.content-menu-active {
 		width: calc(100vw - 250px); }
 

@@ -21,9 +21,8 @@ const Header = props => (
     <NavLink to="/"
       onClick={() => props.home()}
       className="Header__logo"
-    >
-      past-papers
-    </NavLink>
+      children="past-papers"
+    />
   </div>
 )
 
