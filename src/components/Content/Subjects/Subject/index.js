@@ -8,9 +8,29 @@ import './index.css'
 
 class Subject extends React.Component {
 
-  state = { search: '' }
-  handleSearch = this.handleSearch.bind(this)
-  clearSearch = this.clearSearch.bind(this)
+  constructor(props) {
+    super(props)
+    this.state = {
+      search: '',
+      searchFilters: this.props.globals.searchFilters.reduce((categoryMap, category) => {
+        if (category.type === 'check-boxes') {
+          categoryMap[category.name.toLowerCase()] = category.filters.reduce((filterMap, filter) => {
+            filterMap[filter.name.toLowerCase()] = filter.value
+            return filterMap
+          }, {})
+          return categoryMap
+        } else if (category.type === 'radio-button-selection') {
+          categoryMap[category.name.toLowerCase()] = String(0)
+          return categoryMap
+        } else {
+          return categoryMap
+        }
+      }, {})
+    }
+    this.handleSearch = this.handleSearch.bind(this)
+    this.clearSearch = this.clearSearch.bind(this)
+    this.handleFilterChange = this.handleFilterChange.bind(this)
+  }
 
   handleSearch(event) {
     this.setState({ search: event.target.value })
@@ -18,6 +38,29 @@ class Subject extends React.Component {
   clearSearch() {
     this.setState({ search: '' })
   }
+  handleFilterChange = (category, filter, value) => {
+    if (typeof value === 'string') {
+      this.setState(prevState => ({
+        ...prevState,
+        searchFilters: {
+          ...prevState.searchFilters,
+          [category]: value
+        }
+      }))
+    } else if (typeof value === 'boolean') {
+      this.setState(prevState => ({
+        ...prevState,
+        searchFilters: {
+          ...prevState.searchFilters,
+          [category]: {
+            ...prevState.searchFilters[category],
+            [filter]: value
+          }
+        }
+      }))
+    }
+  }
+
   render() {
     return (
       <div className="Subject">
@@ -57,7 +100,10 @@ class Subject extends React.Component {
 								globals={this.props.globals}
                 search={this.state.search}
 								handleSearch={this.handleSearch}
-                clearSearch={this.clearSearch} />
+                clearSearch={this.clearSearch}
+                handleFilterChange={this.handleFilterChange}
+                searchFilters={this.state.searchFilters}
+              />
 						)} />
         </div>
 

@@ -14,6 +14,8 @@ const Search = props => {
         search={props.search}
         handleSearch={props.handleSearch}
         clearSearch={props.clearSearch}
+        handleFilterChange={props.handleFilterChange}
+        searchFilters={props.searchFilters}
         isSearchEmpty={isSearchEmpty}
       />
       <SearchContent

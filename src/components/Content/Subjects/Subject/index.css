@@ -52,6 +52,7 @@
           color: #ff5252; }
   .Subject .Subject__content {
     padding: 25px;
+    padding-top: 15px;
     z-index: 3; }
 
   @media (min-width: 900px) {

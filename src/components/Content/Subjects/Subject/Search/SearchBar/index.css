@@ -1,35 +1,67 @@
-.Search .Search__bar {
+.SearchBar {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   margin-bottom: 35px; }
-  .Search .Search__bar-content,
-  .Search .Search__filters {
-    width: 40vw; }
-  .Search .Search__bar-inner {
-    outline: none;
-    width: 40vw; }
-    .Search .Search__icon-search {
+  .SearchBar .SearchBar__content,
+  .SearchBar .SearchBar__filters {
+    width: 100%; }
+    .SearchBar .SearchBar__icon-search {
       margin: 0 0 0 -4px;
       padding: 13px 10px 0 0; }
-      .Search .Search__icon-search-icon {
+      .SearchBar .SearchBar__icon-search-icon {
         font-size: 33px; }
-    .Search .Search__icon-close {
+    .SearchBar .SearchBar__icon-close {
       margin: 13px 0 0 -4px; }
-      .Search .Search__icon-close-button {
+      .SearchBar .SearchBar__icon-close-button {
         width: auto;
         height: auto;
         padding: 3px; }
-        .Search .Search__icon-close-icon {
+        .SearchBar .Search__icon-close-icon {
           font-size: 27px; }
-    .Search .Search__bar .Search__input-underline:after {
+    .SearchBar .SearchBar__input-underline:after {
       border-color: #333 ; }
-    .Search .Search__input {
+    .SearchBar .SearchBar__input {
       padding: 15px 0;
       font-size: 20px; }
-      .Search .Search__input_hasText {
+      .SearchBar .SearchBar__input_hasText {
         text-align: center; }
-.Search .Search__filters {
-  
+
+.SearchBar .SearchBar__filters {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding-top: 20px; }
+  .SearchBar .SearchBar__filters-category {
+    display: flex;
+    flex-direction: column;
+    padding-right: 20px; }
+    .SearchBar .SearchBar__filters-category:last-child {
+      padding-right: 0; }
+    .SearchBar .SearchBar__filters-catergory-name {
+      margin-bottom: 5px;
+      font-size: 15px; }
+    .SearchBar .SearchBar__filters-catergory-filters {
+      display: flex;
+      flex-direction: column; }
+      .SearchBar .SearchBar__filter {
+        margin: 0; }
+        .SearchBar .SearchBar__filter-checkbox {
+          margin-left: -3px;
+          margin-right: 5px;
+          width: auto;
+          height: auto; }
+        .SearchBar .SearchBar__filter-radio {
+          margin-left: -2px;
+          margin-right: 5px;
+          width: auto;
+          height: auto; }
+        .SearchBar .SearchBar__filter-active span svg {
+          color: #333; }
+
+@media (min-width: 1000px) {
+  .SearchBar .SearchBar__content,
+  .SearchBar .SearchBar__filters {
+    width: 550px; }
 }
