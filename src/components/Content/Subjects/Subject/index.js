@@ -10,9 +10,13 @@ class Subject extends React.Component {
 
   state = { search: '' }
   handleSearch = this.handleSearch.bind(this)
+  clearSearch = this.clearSearch.bind(this)
 
   handleSearch(event) {
     this.setState({ search: event.target.value })
+  }
+  clearSearch() {
+    this.setState({ search: '' })
   }
   render() {
     return (
@@ -52,7 +56,8 @@ class Subject extends React.Component {
 							<Search
 								globals={this.props.globals}
                 search={this.state.search}
-								handleSearch={this.handleSearch} />
+								handleSearch={this.handleSearch}
+                clearSearch={this.clearSearch} />
 						)} />
         </div>
 
