@@ -5,6 +5,7 @@ import Loading from '../common/Loading'
 import AxiosError from '../common/AxiosError'
 import SubjectSelection from './SubjectSelection'
 import Subjects from './Subjects'
+import ManageDatabase from './ManageDatabase'
 
 import './index.css'
 
@@ -34,19 +35,22 @@ const Content = props => {
           <SubjectSelection
             globals={props.globals}
             subjects={props.subjects}
-            subjectsHasError={props.subjectsHasError}
-            subjectsError={props.subjectsError}
           />
         )} />
         <Route path="/subjects" render={({ match }) => (
           <Subjects
             globals={props.globals}
             subjects={props.subjects}
-            subjectsHasError={props.subjectsHasError}
-            subjectsError={props.subjectsError}
             match={match}
           />
         )} />
+        <Route path="/manage-database" render={({ match }) => (
+          <ManageDatabase
+            globals={props.globals}
+            subjects={props.subjects}
+            match={match}
+          />
+        )}/>
       </ContentContainer>
     )
   }

@@ -23,8 +23,8 @@ const Filter = props => {
         control={
           <Checkbox
             classes={{ root: 'SearchBar__filter-checkbox', checked: 'SearchBar__filter-active' }}
-            onChange={(event, checked) => props.handleFilterChange(props.category.name.toLowerCase(), filter.name.toLowerCase(), checked)}
-            checked={props.searchFilters[props.category.name.toLowerCase()][filter.name.toLowerCase()]}
+            onChange={(event, checked) => props.handleFilterChange(props.category.key, filter.key, checked)}
+            checked={props.searchFilters[props.category.key][filter.key]}
           />
         }
       />
@@ -32,8 +32,8 @@ const Filter = props => {
   } else if (props.category.type === 'radio-button-selection') {
     return (
       <RadioGroup
-        value={props.searchFilters[props.category.name.toLowerCase()]}
-        onChange={event => props.handleFilterChange(props.category.name.toLowerCase(), null, event.target.value)}
+        value={props.searchFilters[props.category.key]}
+        onChange={event => props.handleFilterChange(props.category.key, null, event.target.value)}
       >
         {props.category.buttons.map((button, index) => (
           <FormControlLabel

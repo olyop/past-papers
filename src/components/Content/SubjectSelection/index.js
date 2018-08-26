@@ -24,8 +24,11 @@ const SubjectSelection = props => (
 			<div className="SubjectSelection__title">Please Choose a Subject</div>
 			<div className="SubjectSelection__subjects">
 				{props.subjects.map((subject, index) => (
-					<SubjectSelectionSubject globals={props.globals}
-						{...subject} />
+					<SubjectSelectionSubject
+						globals={props.globals}
+						index={index}
+						{...subject}
+					/>
 				))}
 			</div>
 		</div>

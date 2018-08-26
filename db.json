@@ -2,24 +2,22 @@
   "subjects": [
     {
 			"key": "GKvfvjbZsc",
-			"index": 0,
 			"name": "Mathematics",
       "abbreviation": "advanced",
 			"updated": "16th April 2018"
 		},
 		{
 			"key" : "dhRkSziwwp",
-			"index": 1,
 			"name": "Mathematics Extension 1",
       "abbreviation": "extension-1",
 			"updated": "21st March 2018"
 		},
     {
 			"key" : "VeRLrzucwI",
-			"index": 2,
 			"name": "Mathematics Extension 2",
       "abbreviation": "extension-2",
 			"updated": "1st March 2018"
 		}
-  ]
+  ],
+  "pastPapers": []
 }

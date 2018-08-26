@@ -15,7 +15,8 @@ const Subjects = props => (
 					<Subject
 						globals={props.globals}
 						subject={subject}
-						match={match} />
+						match={match}
+					/>
 				)} />
 		))}
 	</div>

@@ -14,13 +14,13 @@ class Subject extends React.Component {
       search: '',
       searchFilters: this.props.globals.searchFilters.reduce((categoryMap, category) => {
         if (category.type === 'check-boxes') {
-          categoryMap[category.name.toLowerCase()] = category.filters.reduce((filterMap, filter) => {
-            filterMap[filter.name.toLowerCase()] = filter.value
+          categoryMap[category.key] = category.filters.reduce((filterMap, filter) => {
+            filterMap[filter.key] = filter.value
             return filterMap
           }, {})
           return categoryMap
         } else if (category.type === 'radio-button-selection') {
-          categoryMap[category.name.toLowerCase()] = String(0)
+          categoryMap[category.key] = String(2)
           return categoryMap
         } else {
           return categoryMap

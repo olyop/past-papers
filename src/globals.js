@@ -28,56 +28,67 @@ const globals = {
 
 	searchFilters: [
 		{
-			name: 'Query-Type',
+			name: 'Query Type',
+			key: 'queryType',
 			type: 'radio-button-selection',
 			buttons: [
-				'Test-Name',
+				'Test Name',
 				'Questions',
 				'Topics'
 			]
 		},
 		{
-			name: 'Paper-Type',
+			name: 'Paper Type',
+			key: 'paperType',
 			type: 'check-boxes',
 			filters: [
 				{
 					name: 'HSC',
+					key: 'hsc',
 					value: true
 				},
 				{
 					name: 'Trials',
+					key: 'trials',
 					value: true
 				},
 				{
-					name: 'Half-Yearlies',
+					name: 'Half Yearlies',
+					key: 'halfYearlies',
 					value: true
 				}
 			]
 		},
 		{
 			name: 'Source',
+			key: 'source',
 			type: 'check-boxes',
 			filters: [
 				{
 					name: 'NESA',
+					key: 'nesa',
 					value: true
 				},
 				{
 					name: 'External',
+					key: 'external',
 					value: true
 				}
 			]
 		},
 		{
-			name: 'Question-Type',
+			name: 'Question Type',
+			key: 'questionType',
 			type: 'check-boxes',
 			filters: [
 				{
 					name: 'MC',
+					key: 'mc',
 					value: true
 				},
 				{
 					name: 'SA',
+					key: 'sa',
 					value: true
 				}
 			]
