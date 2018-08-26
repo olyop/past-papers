@@ -20,7 +20,7 @@ const Search = props => {
       />
       <SearchContent
         globals={props.globals}
-        search={props.search}
+        search={props.search.trim()}
         searchFilters={props.searchFilters}
         isSearchEmpty={isSearchEmpty}
       />
