@@ -4,6 +4,9 @@ import { NavLink, Route } from 'react-router-dom'
 import { Title } from '../../../common/Styles'
 import Search from './Search'
 
+import createFilters from './createFilters'
+import determineFilters from './determineFilters'
+
 import './index.css'
 
 class Subject extends React.Component {
@@ -12,20 +15,7 @@ class Subject extends React.Component {
     super(props)
     this.state = {
       search: '',
-      searchFilters: this.props.globals.searchFilters.reduce((categoryMap, category) => {
-        if (category.type === 'check-boxes') {
-          categoryMap[category.key] = category.filters.reduce((filterMap, filter) => {
-            filterMap[filter.key] = filter.value
-            return filterMap
-          }, {})
-          return categoryMap
-        } else if (category.type === 'radio-button-selection') {
-          categoryMap[category.key] = String(2)
-          return categoryMap
-        } else {
-          return categoryMap
-        }
-      }, {})
+      searchFilters: createFilters(props.globals.searchFilters)
     }
     this.handleSearch = this.handleSearch.bind(this)
     this.clearSearch = this.clearSearch.bind(this)
@@ -39,26 +29,13 @@ class Subject extends React.Component {
     this.setState({ search: '' })
   }
   handleFilterChange = (category, filter, value) => {
-    if (typeof value === 'string') {
-      this.setState(prevState => ({
-        ...prevState,
-        searchFilters: {
-          ...prevState.searchFilters,
-          [category]: value
-        }
-      }))
-    } else if (typeof value === 'boolean') {
-      this.setState(prevState => ({
-        ...prevState,
-        searchFilters: {
-          ...prevState.searchFilters,
-          [category]: {
-            ...prevState.searchFilters[category],
-            [filter]: value
-          }
-        }
-      }))
-    }
+    this.setState(prevState => ({
+      ...prevState,
+      searchFilters: {
+        ...prevState.searchFilters,
+        [category]: determineFilters(prevState, category, filter, value)
+      }
+    }))
   }
 
   render() {
