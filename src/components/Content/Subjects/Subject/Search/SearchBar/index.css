@@ -31,7 +31,6 @@
 .SearchBar .SearchBar__filters {
   display: flex;
   align-items: flex-start;
-  justify-content: space-between;
   padding-top: 20px; }
   .SearchBar .SearchBar__filters-category {
     display: flex;
@@ -60,7 +59,7 @@
         .SearchBar .SearchBar__filter-active span svg {
           color: #333; }
 
-@media (min-width: 1000px) {
+@media (min-width: 1200px) {
   .SearchBar .SearchBar__content,
   .SearchBar .SearchBar__filters {
     width: 550px; }

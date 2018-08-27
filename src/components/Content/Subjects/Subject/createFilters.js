@@ -7,7 +7,7 @@ const createFilters = searchFilters => {
       }, {})
       return categoryMap
     } else if (category.type === 'radio-button-selection') {
-      categoryMap[category.key] = String(2)
+      categoryMap[category.key] = 'topics'
       return categoryMap
     } else {
       return categoryMap

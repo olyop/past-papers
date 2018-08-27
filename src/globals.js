@@ -32,30 +32,17 @@ const globals = {
 			key: 'queryType',
 			type: 'radio-button-selection',
 			buttons: [
-				'Test Name',
-				'Questions',
-				'Topics'
-			]
-		},
-		{
-			name: 'Paper Type',
-			key: 'paperType',
-			type: 'check-boxes',
-			filters: [
 				{
-					name: 'HSC',
-					key: 'hsc',
-					value: true
+					name: 'Test Name',
+					key: 'test-name'
 				},
 				{
-					name: 'Trials',
-					key: 'trials',
-					value: true
+					name: 'Questions',
+					key: 'questions'
 				},
 				{
-					name: 'Half Yearlies',
-					key: 'halfYearlies',
-					value: true
+					name: 'Topics',
+					key: 'topics'
 				}
 			]
 		},
@@ -77,18 +64,23 @@ const globals = {
 			]
 		},
 		{
-			name: 'Question Type',
-			key: 'questionType',
+			name: 'Paper Type',
+			key: 'paperType',
 			type: 'check-boxes',
 			filters: [
 				{
-					name: 'MC',
-					key: 'mc',
+					name: 'HSC',
+					key: 'hsc',
 					value: true
 				},
 				{
-					name: 'SA',
-					key: 'sa',
+					name: 'Trials',
+					key: 'trials',
+					value: true
+				},
+				{
+					name: 'Half Yearlies',
+					key: 'halfYearlies',
 					value: true
 				}
 			]

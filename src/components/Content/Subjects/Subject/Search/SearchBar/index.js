@@ -38,10 +38,10 @@ const Filter = props => {
         {props.category.buttons.map((button, index) => (
           <FormControlLabel
             key={index}
-            value={String(index)}
+            value={button.key}
             classes={{ root: 'SearchBar__filter' }}
             control={<Radio classes={{ root: 'SearchBar__filter-radio', checked: 'SearchBar__filter-active' }} />}
-            label={button}
+            label={button.name}
           />
         ))}
       </RadioGroup>

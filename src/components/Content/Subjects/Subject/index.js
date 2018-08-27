@@ -5,7 +5,7 @@ import { Title } from '../../../common/Styles'
 import Search from './Search'
 
 import createFilters from './createFilters'
-import determineFilters from './determineFilters'
+import determineFilterChange from './determineFilterChange'
 
 import './index.css'
 
@@ -33,7 +33,7 @@ class Subject extends React.Component {
       ...prevState,
       searchFilters: {
         ...prevState.searchFilters,
-        [category]: determineFilters(prevState, category, filter, value)
+        [category]: determineFilterChange(prevState, category, filter, value)
       }
     }))
   }

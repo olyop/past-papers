@@ -22,16 +22,17 @@ import 'normalize.css/normalize.css'
 import './index.css'
 
 class Index extends React.Component {
-
-	state = {
-		subjects: null,
-		subjectsHasError: false,
-		subjectsError: {},
-		menu: false
+	constructor(props) {
+		super(props)
+		this.state = {
+			subjects: null,
+			subjectsHasError: false,
+			subjectsError: {},
+			menu: false
+		}
+		this.home = this.home.bind(this)
+		this.handleMenu = this.handleMenu.bind(this)
 	}
-	home = this.home.bind(this)
-	handleMenu = this.handleMenu.bind(this)
-
   componentDidMount() {
     axios({ url: `${this.props.globals.api}/subjects` })
 			.then(response => this.setState({ subjects: response.data }))

@@ -1,4 +1,4 @@
-const determineFilters = (prevState, category, filter, value) => {
+const determineFilterChange = (prevState, category, filter, value) => {
   if (typeof value === 'string') {
     return value
   } else if (typeof value === 'boolean') {
@@ -9,4 +9,4 @@ const determineFilters = (prevState, category, filter, value) => {
   }
 }
 
-export default determineFilters
+export default determineFilterChange

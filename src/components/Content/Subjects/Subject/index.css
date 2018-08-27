@@ -38,11 +38,11 @@
       .Subject .Subject__nav .Subject__nav-item:hover {
         background-color: #EEEEEE; }
       .Subject .Subject__nav-item-icon {
-        font-size: 20px; }
+        font-size: 21px; }
       .Subject .Subject__nav-item-text {
         padding-left: 10px;
         font-weight: 400;
-        font-size: 14px; }
+        font-size: 16px; }
       .Subject .Subject__nav-item-active {
         color: #ff5252;
         border-color: #ff5252 !important; }
@@ -58,10 +58,6 @@
   @media (min-width: 900px) {
     .Subject .Subject__nav-item {
       padding: 15px 15px 14px 15px; }
-      .Subject .Subject__nav-item-icon {
-        font-size: 23px; }
-      .Subject .Subject__nav-item-text {
-        font-size: 14px; }
   }
 
 @media (min-width: 1000px) {
@@ -72,6 +68,4 @@
     font-weight: 400; }
   .Subject .Subject__nav-item {
     padding: 15px 20px 14px 20px; }
-    .Subject .Subject__nav-item-text {
-      font-size: 16px; }
 }

@@ -8,7 +8,7 @@ const SearchContent = props => {
   } else {
     return (
       <div className="Search__content">
-        <div className="Search__content-inner">
+        <div className="centred-content">
           <pre style={{ margin: 0 }}>{JSON.stringify({ query: props.search, filters: props.searchFilters }, null, 2)}</pre>
         </div>
       </div>
