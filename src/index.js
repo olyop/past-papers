@@ -65,21 +65,17 @@ class Index extends React.Component {
 		return (
 			<BrowserRouter>
 				<div id="index">
-
 					<Header
 						globals={this.props.globals}
 						home={this.home}
 						menu={this.state.menu}
 						handleMenu={this.handleMenu}
 					/>
-
 					<div className="window">
-						{this.state.menu ? (
-							<Menu
-								globals={this.props.globals}
-								handleMenu={this.handleMenu}
-							/>
-						) : null}
+						{this.state.menu ? <Menu
+							globals={this.props.globals}
+							handleMenu={this.handleMenu}
+						/> : null}
 						<Content
 							globals={this.props.globals}
 	            subjects={this.state.subjects}
@@ -88,7 +84,6 @@ class Index extends React.Component {
 							menu={this.state.menu}
 						/>
 					</div>
-
 				</div>
 			</BrowserRouter>
 		)
