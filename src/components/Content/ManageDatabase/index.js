@@ -5,6 +5,7 @@ import MenuItem from '@material-ui/core/MenuItem'
 import Select from '@material-ui/core/Select'
 import Input from '@material-ui/core/Input';
 import InputLabel from '@material-ui/core/InputLabel'
+import TextField from '@material-ui/core/TextField'
 
 import './index.css'
 
@@ -13,25 +14,54 @@ export default class ManageDatabase extends React.Component {
     return (
       <div id="ManageDatabase">
         <div className="centred-content ManageDatabase__content">
-          {this.props.globals.searchFilters.slice(1,3).map((searchFilter, index) => (
-            <FormControl key={searchFilter.key} classes={{ root: 'ManageDatabase__row' }}>
-              <InputLabel>
-                {searchFilter.name}
-              </InputLabel>
-              <Select
-                input={<Input name={searchFilter.name} id={searchFilter.key} />}
-                value={searchFilter.filters[0].key}
-              >
-                {searchFilter.filters.map((filter, index) => (
-                  <MenuItem
-                    key={index}
-                    value={filter.key}
-                    children={filter.name}
-                  />
-                ))}
-              </Select>
-            </FormControl>
-          ))}
+          <FormControl key={'source'} classes={{ root: 'ManageDatabase__row' }}>
+            <InputLabel>Source</InputLabel>
+            <Select
+              input={<Input name="Source" />}
+              value={'nesa'}
+            >
+              <MenuItem
+                key={'nesa'}
+                value={'nesa'}
+                children={'NESA'}
+              />
+              <MenuItem
+                key={'external'}
+                value={'external'}
+                children={'External'}
+              />
+            </Select>
+          </FormControl>
+          <FormControl key={'paperType'} classes={{ root: 'ManageDatabase__row' }}>
+            <InputLabel>Paper Type</InputLabel>
+            <Select
+              input={<Input name="Paper Type" />}
+              value={'hsc'}
+            >
+              <MenuItem
+                key={'hsc'}
+                value={'hsc'}
+                children={'HSC'}
+              />
+              <MenuItem
+                key={'trials'}
+                value={'trials'}
+                children={'Trials'}
+              />
+              <MenuItem
+                key={'halfYearlies'}
+                value={'halfYearlies'}
+                children={'Half Yearlies'}
+              />
+            </Select>
+          </FormControl>
+          <FormControl ley={'year'} classes={{ root: 'ManageDatabase__row' }}>
+            <TextField
+              id={'year'}
+              label="Year"
+              placeholder="The year of the test"
+            />
+          </FormControl>
         </div>
       </div>
     )

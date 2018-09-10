@@ -72,10 +72,12 @@ class Index extends React.Component {
 						handleMenu={this.handleMenu}
 					/>
 					<div className="window">
-						{this.state.menu ? <Menu
-							globals={this.props.globals}
-							handleMenu={this.handleMenu}
-						/> : null}
+						{this.state.menu ? (
+							<Menu
+								globals={this.props.globals}
+								handleMenu={this.handleMenu}
+							/>
+						): null}
 						<Content
 							globals={this.props.globals}
 	            subjects={this.state.subjects}

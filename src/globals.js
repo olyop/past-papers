@@ -33,8 +33,12 @@ const globals = {
 			type: 'radio-button-selection',
 			buttons: [
 				{
-					name: 'Test Name',
-					key: 'test-name'
+					name: 'School',
+					key: 'school'
+				},
+				{
+					name: 'Year',
+					key: 'year'
 				},
 				{
 					name: 'Questions',
@@ -86,7 +90,6 @@ const globals = {
 			]
 		}
 	]
-
 }
 
 export default globals

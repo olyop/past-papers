@@ -28,9 +28,11 @@
     justify-content: center;
     align-items: center; }
     .Subject .Subject__nav-item {
+      width: 90px;
       display: flex;
       align-items: center;
       justify-content: center;
+      flex-direction: column;
       transition: .3s all;
       border-bottom: 3px solid;
       border-color: transparent;
@@ -38,9 +40,9 @@
       .Subject .Subject__nav .Subject__nav-item:hover {
         background-color: #EEEEEE; }
       .Subject .Subject__nav-item-icon {
+        margin-bottom: 7px;
         font-size: 21px; }
       .Subject .Subject__nav-item-text {
-        padding-left: 10px;
         font-weight: 400;
         font-size: 16px; }
       .Subject .Subject__nav-item-active {
@@ -49,6 +51,7 @@
         .Subject .Subject__nav-item-active .Subject__nav-item-icon {
           color: #ff5252; }
         .Subject .Subject__nav-item-active .Subject__nav-item-text {
+          font-weight: 700;
           color: #ff5252; }
   .Subject .Subject__content {
     padding: 25px;
