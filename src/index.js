@@ -34,7 +34,7 @@ class Index extends React.Component {
 		this.handleMenu = this.handleMenu.bind(this)
 	}
   componentDidMount() {
-    axios({ url: `${this.props.globals.api}/subjects` })
+    axios({ url: `${globals.api}/subjects` })
 			.then(response => this.setState({ subjects: response.data }))
     	.catch(error => {
 				this.setState({
@@ -66,20 +66,13 @@ class Index extends React.Component {
 			<BrowserRouter>
 				<div id="index">
 					<Header
-						globals={this.props.globals}
 						home={this.home}
 						menu={this.state.menu}
 						handleMenu={this.handleMenu}
 					/>
 					<div className="window">
-						{this.state.menu ? (
-							<Menu
-								globals={this.props.globals}
-								handleMenu={this.handleMenu}
-							/>
-						): null}
+						{this.state.menu ? <Menu handleMenu={this.handleMenu} /> : null}
 						<Content
-							globals={this.props.globals}
 	            subjects={this.state.subjects}
 	            subjectsHasError={this.state.subjectsHasError}
 	            subjectsError={this.state.subjectsError}
@@ -93,7 +86,7 @@ class Index extends React.Component {
 }
 
 ReactDOM.render(
-	<Index globals={globals}/>,
+	<Index />,
 	document.getElementById('root')
 )
 

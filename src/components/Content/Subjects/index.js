@@ -13,7 +13,6 @@ const Subjects = props => (
 				path={`${props.match.path}/${subject.abbreviation}`}
 				render={({ match }) => (
 					<Subject
-						globals={props.globals}
 						subject={subject}
 						match={match}
 					/>

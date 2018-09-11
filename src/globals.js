@@ -89,7 +89,26 @@ const globals = {
 				}
 			]
 		}
-	]
+	],
+
+	templates: {
+
+		pastPaper: {
+			year: null,
+			school: null,
+			source: null,
+			paperType: null,
+			sections: [],
+		},
+
+		pastPaperSection: {
+			marks: null,
+			time: null,
+			questions: []
+		}
+
+	}
+
 }
 
 export default globals

@@ -1,10 +1,13 @@
 import React from 'react'
+
 import { NavLink } from 'react-router-dom'
+
+import globals from '../../../globals'
 
 import './index.css'
 
 const SubjectSelectionSubject = props => (
-	<NavLink to={`/subjects/${props.abbreviation}${props.globals.subjectPages[0].path}`} className="SubjectSelection__subject">
+	<NavLink to={`/subjects/${props.abbreviation}${globals.subjectPages[0].path}`} className="SubjectSelection__subject">
 		<span className="SubjectSelection__list">{props.index + 1}.</span>
 		<div className="SubjectSelection__subject-info">
 			<div className="SubjectSelection__subject-text">
@@ -25,7 +28,6 @@ const SubjectSelection = props => (
 			<div className="SubjectSelection__subjects">
 				{props.subjects.map((subject, index) => (
 					<SubjectSelectionSubject
-						globals={props.globals}
 						index={index}
 						{...subject}
 					/>

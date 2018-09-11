@@ -33,20 +33,17 @@ const Content = props => {
       <ContentContainer menu={props.menu}>
         <Route path="/" exact render={() => (
           <SubjectSelection
-            globals={props.globals}
             subjects={props.subjects}
           />
         )} />
         <Route path="/subjects" render={({ match }) => (
           <Subjects
-            globals={props.globals}
             subjects={props.subjects}
             match={match}
           />
         )} />
         <Route path="/manage-database" render={({ match }) => (
           <ManageDatabase
-            globals={props.globals}
             subjects={props.subjects}
             match={match}
           />

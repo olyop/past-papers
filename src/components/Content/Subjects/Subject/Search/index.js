@@ -10,7 +10,6 @@ const Search = props => {
   return (
     <div className="Search">
       <SearchBar
-        globals={props.globals}
         search={props.search}
         handleSearch={props.handleSearch}
         clearSearch={props.clearSearch}
@@ -19,7 +18,6 @@ const Search = props => {
         isSearchEmpty={isSearchEmpty}
       />
       <SearchContent
-        globals={props.globals}
         search={props.search.trim()}
         searchFilters={props.searchFilters}
         isSearchEmpty={isSearchEmpty}
