@@ -94,18 +94,45 @@ const globals = {
 	templates: {
 
 		pastPaper: {
-			year: null,
-			school: null,
-			source: null,
-			paperType: null,
-			sections: [],
+			year: '',
+			school: '',
+			source: null, // nesa, external
+			paperType: null, // hsc, trials, halfYearlies
+			sections: []
 		},
 
-		pastPaperSection: {
-			marks: null,
-			time: null,
-			questions: []
-		}
+			section: {
+				marks: '',
+				time: '',
+				questions: []
+			},
+
+				question: {
+					marks: '',
+					num: '',
+					type: null, // mc, sa
+					question: null
+				},
+
+					mc: {
+						num: '',
+						content: [],
+						choices: []
+					},
+
+					sa: {
+						subQuestions: []
+					},
+
+					subQuestion: {
+						
+					}
+
+					questionContent: {
+						type: null, // text, diagram
+						centered: false,
+						content: null
+					}
 
 	}
 
