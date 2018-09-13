@@ -121,14 +121,22 @@ const globals = {
 					},
 
 					sa: {
-						subQuestions: []
+						subs: []
 					},
 
-					subQuestion: {
-						
-					}
+					sub: {
+						letter: '',
+						hasParts: false,
+						content: [],
+						parts: []
+					},
 
-					questionContent: {
+					part: {
+						num: '',
+						content: []
+					},
+
+					content: {
 						type: null, // text, diagram
 						centered: false,
 						content: null
