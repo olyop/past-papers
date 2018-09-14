@@ -91,6 +91,95 @@ const globals = {
 		}
 	],
 
+	dataDictionary: {
+
+		pastPaper: [
+			{
+				prop: 'year',
+				name: 'Year',
+				type: 'number',
+				required: true,
+				default: 2018
+			},
+			{
+				prop: 'school',
+				name: 'School',
+				type: 'string',
+				required: true,
+				default: ''
+			},
+			{
+				prop: 'source',
+				name: 'Source',
+				type: 'string',
+				required: true,
+				selection: [
+					{ prop: 'nesa', name: 'NESA', },
+					{ prop: 'external', name: 'External' }
+				]
+			},
+			{
+				prop: 'paperType',
+				name: 'Paper Type',
+				type: 'string',
+				required: true,
+				selection: [
+					{ prop: 'hsc', name: 'HSC', },
+					{ prop: 'trails', name: 'Trials' },
+					{ prop: 'halfYearlies', name: 'Half Yearlies' }
+				]
+			},
+			// {
+			// 	prop: 'sections',
+			// 	name: 'Sections',
+			// 	type: 'array',
+			// 	required: true
+			// }
+		],
+
+		section: [
+			{
+				prop: 'marks',
+				name: 'Marks',
+				type: 'string',
+				required: true,
+				default: ''
+			},
+			{
+				prop: 'time',
+				name: 'Time',
+				type: 'string',
+				required: true,
+				default: ''
+			},
+			{
+				prop: 'questions',
+				name: 'Questions',
+				type: 'array',
+				required: true,
+				default: []
+			}
+		],
+
+		question: [
+			{
+				prop: 'num',
+				name: 'Number',
+				type: 'string',
+				required: true,
+				default: ''
+			},
+			{
+				prop: 'questions',
+				name: 'Questions',
+				type: 'array',
+				required: true,
+				default: []
+			}
+		]
+
+	},
+
 	templates: {
 
 		pastPaper: {
@@ -108,7 +197,6 @@ const globals = {
 			},
 
 				question: {
-					marks: '',
 					num: '',
 					type: null, // mc, sa
 					question: null
@@ -121,12 +209,11 @@ const globals = {
 					},
 
 					sa: {
-						subs: []
+						subQuestions: []
 					},
 
-					sub: {
+					subQuestion: {
 						letter: '',
-						hasParts: false,
 						content: [],
 						parts: []
 					},

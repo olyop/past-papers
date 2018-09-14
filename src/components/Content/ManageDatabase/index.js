@@ -7,6 +7,8 @@ import Input from '@material-ui/core/Input';
 import InputLabel from '@material-ui/core/InputLabel'
 import TextField from '@material-ui/core/TextField'
 
+import globals from '../../../globals'
+
 import './index.css'
 
 export default class ManageDatabase extends React.Component {
@@ -14,54 +16,41 @@ export default class ManageDatabase extends React.Component {
     return (
       <div id="ManageDatabase">
         <div className="centred-content ManageDatabase__content">
-          <FormControl key={'source'} classes={{ root: 'ManageDatabase__row' }}>
-            <InputLabel>Source</InputLabel>
-            <Select
-              input={<Input name="Source" />}
-              value={'nesa'}
-            >
-              <MenuItem
-                key={'nesa'}
-                value={'nesa'}
-                children={'NESA'}
-              />
-              <MenuItem
-                key={'external'}
-                value={'external'}
-                children={'External'}
-              />
-            </Select>
-          </FormControl>
-          <FormControl key={'paperType'} classes={{ root: 'ManageDatabase__row' }}>
-            <InputLabel>Paper Type</InputLabel>
-            <Select
-              input={<Input name="Paper Type" />}
-              value={'hsc'}
-            >
-              <MenuItem
-                key={'hsc'}
-                value={'hsc'}
-                children={'HSC'}
-              />
-              <MenuItem
-                key={'trials'}
-                value={'trials'}
-                children={'Trials'}
-              />
-              <MenuItem
-                key={'halfYearlies'}
-                value={'halfYearlies'}
-                children={'Half Yearlies'}
-              />
-            </Select>
-          </FormControl>
-          <FormControl ley={'year'} classes={{ root: 'ManageDatabase__row' }}>
-            <TextField
-              id={'year'}
-              label="Year"
-              placeholder="The year of the test"
-            />
-          </FormControl>
+          {globals.dataDictionary.pastPaper.map((prop, index) => {
+            if ('selection' in prop) {
+              return (
+                <FormControl key={prop.prop} classes={{ root: 'ManageDatabase__row' }}>
+                  <InputLabel>{prop.name}</InputLabel>
+                  <Select
+                    input={<Input name={prop.name} />}
+                    value={prop.selection[0].prop}
+                  >
+                    {prop.selection.map((selection, index) => (
+                      <MenuItem
+                        key={selection.prop}
+                        value={selection.prop}
+                        children={selection.name}
+                      />
+                    ))}
+                  </Select>
+                </FormControl>
+              )
+            } else {
+              return (
+                <FormControl key={prop.prop} classes={{ root: 'ManageDatabase__row' }}>
+                  <TextField
+                    id={prop.prop}
+                    label={prop.name}
+                    type={prop.type}
+                    value={prop.default}
+                    InputLabelProps={{
+                      shrink: true,
+                    }}
+                  />
+                </FormControl>
+              )
+            }
+          })}
         </div>
       </div>
     )
