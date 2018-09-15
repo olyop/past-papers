@@ -6,6 +6,8 @@ import Select from '@material-ui/core/Select'
 import Input from '@material-ui/core/Input';
 import InputLabel from '@material-ui/core/InputLabel'
 import TextField from '@material-ui/core/TextField'
+import Button from '@material-ui/core/Button'
+import Icon from '@material-ui/core/Icon'
 
 import globals from '../../../globals'
 
@@ -34,6 +36,16 @@ export default class ManageDatabase extends React.Component {
                     ))}
                   </Select>
                 </FormControl>
+              )
+            } else if (prop.type === 'array') {
+              return (
+                <div key={prop.prop}>
+                  <p>{prop.name}</p>
+                  <Button size="small">
+                    <Icon>add</Icon>
+                    Add New {prop.element}
+                  </Button>
+                </div>
               )
             } else {
               return (

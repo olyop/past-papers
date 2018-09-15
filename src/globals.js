@@ -129,12 +129,13 @@ const globals = {
 					{ prop: 'halfYearlies', name: 'Half Yearlies' }
 				]
 			},
-			// {
-			// 	prop: 'sections',
-			// 	name: 'Sections',
-			// 	type: 'array',
-			// 	required: true
-			// }
+			{
+				prop: 'sections',
+				name: 'Sections',
+				type: 'array',
+				required: true,
+				element: 'section'
+			}
 		],
 
 		section: [
