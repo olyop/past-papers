@@ -5,7 +5,7 @@ import Loading from '../common/Loading'
 import AxiosError from '../common/AxiosError'
 import SubjectSelection from './SubjectSelection'
 import Subjects from './Subjects'
-import ManageDatabase from './ManageDatabase'
+import PastPapersDatabase from './PastPapersDatabase'
 
 import './index.css'
 
@@ -25,7 +25,7 @@ const Content = props => {
   } else if (props.subjects === null) {
     return (
       <ContentContainer menu={props.menu}>
-        <Loading text="Loading database..." />
+        <Loading>Loading database...</Loading>
       </ContentContainer>
     )
   } else if (props.subjects.constructor === Array) {
@@ -43,7 +43,7 @@ const Content = props => {
           />
         )} />
         <Route path="/manage-database" render={({ match }) => (
-          <ManageDatabase
+          <PastPapersDatabase
             subjects={props.subjects}
             match={match}
           />
