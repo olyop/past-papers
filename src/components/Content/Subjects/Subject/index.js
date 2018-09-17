@@ -32,7 +32,6 @@ class Subject extends React.Component {
   }
   handleFilterChange = (category, filter, value) => {
     this.setState(prevState => ({
-      ...prevState,
       searchFilters: {
         ...prevState.searchFilters,
         [category]: determineFilterChange(prevState, category, filter, value)
