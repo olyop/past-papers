@@ -3,7 +3,6 @@ import React from 'react'
 import FormControl from '@material-ui/core/FormControl'
 import MenuItem from '@material-ui/core/MenuItem'
 import Select from '@material-ui/core/Select'
-import Input from '@material-ui/core/Input'
 import InputLabel from '@material-ui/core/InputLabel'
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
@@ -11,56 +10,67 @@ import Icon from '@material-ui/core/Icon'
 
 import globals from '../../../../globals'
 
+import createTemplate from './createTemplate'
+
 import './index.css'
 
 class AddPastPaper extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {}
+    this.state = createTemplate(globals.dataDictionary.pastPaper)
+    this.handleChange = this.handleChange.bind(this)
+  }
+  handleChange(event, dataItem) {
+    let type = dataItem.type
+    if (type === 'string' || type === 'number') {
+      this.setState({ [dataItem.property]: event.target.value })
+    } else if (type === 'array') {
+      console.log(typeof this.state[dataItem.property])
+      // this.setState({ [dataItem.property]: this.state[dataItem.property].push(createTemplate(globals.dataDictionary.section)) })
+    }
   }
   render() {
     return (
       <div id="AddPastPaper">
-        {globals.dataDictionary.pastPaper.map((prop, index) => {
-          if ('selection' in prop) {
+        {globals.dataDictionary.pastPaper.map(dataItem => {
+          if ('options' in dataItem) {
             return (
-              <FormControl key={prop.prop} classes={{ root: 'AddPastPaper__row' }}>
-                <InputLabel>{prop.name}</InputLabel>
+              <FormControl key={dataItem.property} classes={{ root: 'AddPastPaper__row' }}>
+                <InputLabel>{dataItem.name}</InputLabel>
                 <Select
-                  input={<Input name={prop.name} />}
-                  value={prop.selection[0].prop}
+                  value={this.state[dataItem.property]}
+                  onChange={event => this.handleChange(event, dataItem)}
                 >
-                  {prop.selection.map((selection, index) => (
+                  {dataItem.options.map(option => (
                     <MenuItem
-                      key={selection.prop}
-                      value={selection.prop}
-                      children={selection.name}
+                      key={option.key}
+                      value={option.key}
+                      children={option.name}
                     />
                   ))}
                 </Select>
               </FormControl>
             )
-          } else if (prop.type === 'array') {
+          } else if (dataItem.type === 'array') {
             return (
-              <div key={prop.prop} className="AddPastPaper__row">
-                <p>{prop.name}</p>
-                <Button size="small">
+              <div key={dataItem.property} className="AddPastPaper__row">
+                <p>{dataItem.name}</p>
+                <Button onClick={event => this.handleChange(event, dataItem)}>
                   <Icon>add</Icon>
-                  Add New {prop.element}
+                  Add New {dataItem.element}
                 </Button>
               </div>
             )
           } else {
             return (
-              <FormControl key={prop.prop} classes={{ root: 'AddPastPaper__row' }}>
+              <FormControl key={dataItem.property} classes={{ root: 'AddPastPaper__row' }}>
                 <TextField
-                  id={prop.prop}
-                  label={prop.name}
-                  type={prop.type}
-                  value={prop.default}
-                  InputLabelProps={{
-                    shrink: true,
-                  }}
+                  label={dataItem.name}
+                  type={dataItem.type}
+                  value={this.state[dataItem.property]}
+                  onChange={event => this.handleChange(event, dataItem)}
+                  InputLabelProps={{ shrink: true }}
+                  placeholder={dataItem.placeholder}
                 />
               </FormControl>
             )

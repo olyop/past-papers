@@ -13,7 +13,7 @@ class PastPapersDatabase extends React.Component {
       <div id="PastPapersDatabase">
         <div className="centred-content">
           <div className="PastPapersDatabase__header">
-            <NavLink to={`${this.props.match.path}/view-database`}>View Datatbase</NavLink>
+            <NavLink to={`${this.props.match.path}/view-database`}>View Database</NavLink>
             <NavLink to={`${this.props.match.path}/add-past-paper`}>Add Past Paper</NavLink>
           </div>
           <div className="PastPapersDatabase__content">

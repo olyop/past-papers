@@ -1,2 +1,4 @@
 #PastPapersDatabase {
   padding: 25px; }
+  #PastPapersDatabase .PastPapersDatabase__header {
+    padding-bottom: 20px; }

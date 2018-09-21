@@ -95,89 +95,96 @@ const globals = {
 
 		pastPaper: [
 			{
-				prop: 'year',
+				property: 'year',
 				name: 'Year',
+				required: true,
 				type: 'number',
-				required: true,
-				default: 2018
+				default: '',
+				placeholder: 'Year of paper...'
 			},
 			{
-				prop: 'school',
-				name: 'School',
-				type: 'string',
-				required: true,
-				default: ''
-			},
-			{
-				prop: 'source',
+				property: 'source',
 				name: 'Source',
-				type: 'string',
 				required: true,
-				selection: [
-					{ prop: 'nesa', name: 'NESA', },
-					{ prop: 'external', name: 'External' }
+				type: 'string',
+				options: [
+					{ key: 'nesa', name: 'NESA', },
+					{ key: 'external', name: 'External' }
 				]
 			},
 			{
-				prop: 'paperType',
+				property: 'school',
+				name: 'School',
+				required: true,
+				type: 'string',
+				default: '',
+				placeholder: 'Name of school...'
+			},
+			{
+				property: 'paperType',
 				name: 'Paper Type',
-				type: 'string',
 				required: true,
-				selection: [
-					{ prop: 'hsc', name: 'HSC', },
-					{ prop: 'trails', name: 'Trials' },
-					{ prop: 'halfYearlies', name: 'Half Yearlies' }
+				type: 'string',
+				options: [
+					{ key: 'hsc', name: 'HSC', },
+					{ key: 'trails', name: 'Trials' },
+					{ key: 'halfYearlies', name: 'Half Yearlies' }
 				]
 			},
 			{
-				prop: 'sections',
+				property: 'sections',
 				name: 'Sections',
+				required: true,
 				type: 'array',
-				required: true,
-				element: 'section'
-			}
-		],
-
-		section: [
-			{
-				prop: 'marks',
-				name: 'Marks',
-				type: 'string',
-				required: true,
-				default: ''
-			},
-			{
-				prop: 'time',
-				name: 'Time',
-				type: 'string',
-				required: true,
-				default: ''
-			},
-			{
-				prop: 'questions',
-				name: 'Questions',
-				type: 'array',
-				required: true,
+				element: 'section',
 				default: []
 			}
 		],
 
-		question: [
-			{
-				prop: 'num',
-				name: 'Number',
-				type: 'string',
-				required: true,
-				default: ''
-			},
-			{
-				prop: 'questions',
-				name: 'Questions',
-				type: 'array',
-				required: true,
-				default: []
-			}
-		]
+			section: [
+				{
+					property: 'marks',
+					name: 'Marks',
+					type: 'number',
+					required: true,
+					default: '',
+					placeholder: 'Marks in section...'
+				},
+				{
+					property: 'time',
+					name: 'Time',
+					type: 'number',
+					required: true,
+					default: '',
+					placeholder: 'Time allocated to section...'
+				},
+				{
+					property: 'questions',
+					name: 'Questions',
+					type: 'array',
+					required: true,
+					element: 'question',
+					default: []
+				}
+			],
+
+				question: [
+					{
+						property: 'num',
+						name: 'Number',
+						type: 'string',
+						required: true,
+						default: ''
+					},
+					{
+						property: 'subQuestions',
+						name: 'Sub Questions',
+						type: 'array',
+						required: true,
+						element: 'subQuestion',
+						default: []
+					}
+				]
 
 	},
 
