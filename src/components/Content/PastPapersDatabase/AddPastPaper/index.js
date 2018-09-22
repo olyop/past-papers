@@ -8,7 +8,7 @@ import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
 import Icon from '@material-ui/core/Icon'
 
-import globals from '../../../../globals'
+import { gbl_dataDictionary } from '../../../../globals'
 
 import createTemplate from './createTemplate'
 
@@ -17,7 +17,7 @@ import './index.css'
 class AddPastPaper extends React.Component {
   constructor(props) {
     super(props)
-    this.state = createTemplate(globals.dataDictionary.pastPaper)
+    this.state = createTemplate(gbl_dataDictionary.pastPaper)
     this.handleChange = this.handleChange.bind(this)
   }
   handleChange(event, dataItem) {
@@ -27,14 +27,14 @@ class AddPastPaper extends React.Component {
       this.setState({ [property]: event.target.value })
     } else if (type === 'array') {
       let newArray = this.state[property]
-      newArray.push(createTemplate(globals.dataDictionary.section))
+      newArray.push(createTemplate(gbl_dataDictionary[dataItem.element]))
       this.setState({ [property]: newArray })
     }
   }
   render() {
     return (
       <div id="AddPastPaper">
-        {globals.dataDictionary.pastPaper.map(dataItem => {
+        {gbl_dataDictionary.pastPaper.map(dataItem => {
           if ('options' in dataItem) {
             return (
               <FormControl key={dataItem.property} classes={{ root: 'AddPastPaper__row' }}>

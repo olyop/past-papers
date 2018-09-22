@@ -4,7 +4,7 @@ import { NavLink, Route } from 'react-router-dom'
 import { Title } from '../../../common/Styles'
 import Search from './Search'
 
-import globals from '../../../../globals'
+import { gbl_subjectPages, gbl_searchFilters } from '../../../../globals'
 
 import createFilters from './createFilters'
 import determineFilterChange from './determineFilterChange'
@@ -12,18 +12,16 @@ import determineFilterChange from './determineFilterChange'
 import './index.css'
 
 class Subject extends React.Component {
-
   constructor(props) {
     super(props)
     this.state = {
       search: '',
-      searchFilters: createFilters(globals.searchFilters)
+      searchFilters: createFilters(gbl_searchFilters)
     }
     this.handleSearch = this.handleSearch.bind(this)
     this.clearSearch = this.clearSearch.bind(this)
     this.handleFilterChange = this.handleFilterChange.bind(this)
   }
-
   handleSearch(event) {
     this.setState({ search: event.target.value })
   }
@@ -56,7 +54,7 @@ class Subject extends React.Component {
         </div>
 
         <div className="Subject__nav">
-          {globals.subjectPages.map((page, index) => (
+          {gbl_subjectPages.map((page, index) => (
             <NavLink
               key={index}
               to={`${this.props.match.path}${page.path}`}

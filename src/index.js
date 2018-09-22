@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom'
 import registerServiceWorker from './react/registerServiceWorker'
 
 // Import globals
-import globals from './globals'
+import { gbl_api } from './globals'
 
 // Import functions
 import axios from 'axios'
@@ -34,15 +34,16 @@ class Index extends React.Component {
 		this.handleMenu = this.handleMenu.bind(this)
 	}
   componentDidMount() {
-    axios({ url: `${globals.api}/subjects` })
-			.then(response => this.setState({ subjects: response.data }))
+    axios({ url: `${gbl_api}/subjects` })
+			.then(response => {
+				this.setState({
+					subjects: response.data
+				})
+			})
     	.catch(error => {
 				this.setState({
 					subjectsHasError: true,
-					subjectsError: {
-						message: error.message,
-						...error
-					}
+					subjectsError: { message: error.message, ...error	}
 				})
 			})
   }

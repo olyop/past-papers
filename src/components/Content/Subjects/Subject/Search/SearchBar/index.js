@@ -11,7 +11,7 @@ import Checkbox from '@material-ui/core/Checkbox'
 import Radio from '@material-ui/core/Radio'
 import RadioGroup from '@material-ui/core/RadioGroup'
 
-import globals from '../../../../../../globals'
+import { gbl_searchFilters } from '../../../../../../globals'
 
 import './index.css'
 
@@ -82,7 +82,7 @@ const SearchBar = props => {
         {...conditionalProps}
       />
       <div className="SearchBar__content SearchBar__filters">
-        {globals.searchFilters.map((category, index) => (
+        {gbl_searchFilters.map((category, index) => (
           <FormGroup key={index} classes={{ root: 'SearchBar__filters-category' }}>
             <FormLabel component="legend" classes={{ root: 'SearchBar__filters-catergory-name' }}>{category.name}</FormLabel>
             <div className="SearchBar__filters-catergory-filters">
