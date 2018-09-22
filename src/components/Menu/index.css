@@ -3,6 +3,8 @@
   width: 250px;
   border-right: 1px solid rgba(0,0,0,0.14);
   background-color: #fff; }
+  .Menu .Menu__inner {
+    padding: 20px; }
 
 @media (min-height: 1080px) {
   .Menu {

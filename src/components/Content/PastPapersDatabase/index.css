@@ -1,4 +1,17 @@
 #PastPapersDatabase {
-  padding: 25px; }
+  border-top: 1px solid rgba(0,0,0,0.14);
+  border-bottom: 1px solid rgba(0,0,0,0.14);
+  margin-top: 20px; }
+  #PastPapersDatabase .centred-content {
+    padding: 0; }
   #PastPapersDatabase .PastPapersDatabase__header {
-    padding-bottom: 20px; }
+    border-bottom: 1px solid rgba(0,0,0,0.14);
+    padding: 20px; }
+  #PastPapersDatabase .PastPapersDatabase__content {
+    padding: 20px; }
+
+@media (min-width: 1000px) {
+  #PastPapersDatabase {
+    border-top: 0;
+    border-bottom: 0; }
+}

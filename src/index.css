@@ -25,7 +25,6 @@ body {
 	margin: 0 auto;
 	padding: 20px;
 	border-radius: 3px;
-	box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
 	background-color: #fff;
 	width: 100%; }
 
@@ -34,8 +33,12 @@ body {
     height: 94vh; }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1000px) {
   .centred-content {
+		box-shadow:
+			0px 1px 3px 0px rgba(0, 0, 0, 0.2),
+			0px 1px 1px 0px rgba(0, 0, 0, 0.14),
+			0px 2px 1px -1px rgba(0, 0, 0, 0.12);
     width: 700px; }
 }
 

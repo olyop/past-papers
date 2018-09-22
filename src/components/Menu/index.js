@@ -7,7 +7,9 @@ import './index.css'
 const Menu = props => {
   return (
     <div className="Menu">
-      <NavLink to="/manage-database">Manage Database</NavLink>
+      <div className="Menu__inner">
+        <NavLink to="/manage-database/add-past-paper">Manage Database</NavLink>
+      </div>
     </div>
   )
 }

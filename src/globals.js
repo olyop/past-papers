@@ -143,6 +143,14 @@ const globals = {
 
 			section: [
 				{
+					property: 'num',
+					name: 'Number',
+					type: 'string',
+					required: true,
+					default: '',
+					placeholder: 'Section number...'
+				},
+				{
 					property: 'marks',
 					name: 'Marks',
 					type: 'number',

@@ -4,12 +4,10 @@ const createTemplate = dataDictionary => {
     let dataItem = dataDictionary[i]
     if ('options' in dataItem) {
       template[dataItem.property] = dataItem.options[0].key
+    } else if (dataItem.type === 'array') {
+      template[dataItem.property] = new Array(0)
     } else {
-      if (dataDictionary.type === 'array') {
-        template[dataItem.property] = []
-      } else {
-        template[dataItem.property] = dataItem.default
-      }
+      template[dataItem.property] = dataItem.default
     }
   }
   return template

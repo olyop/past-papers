@@ -22,11 +22,13 @@ class AddPastPaper extends React.Component {
   }
   handleChange(event, dataItem) {
     let type = dataItem.type
+    let property = dataItem.property
     if (type === 'string' || type === 'number') {
-      this.setState({ [dataItem.property]: event.target.value })
+      this.setState({ [property]: event.target.value })
     } else if (type === 'array') {
-      console.log(typeof this.state[dataItem.property])
-      // this.setState({ [dataItem.property]: this.state[dataItem.property].push(createTemplate(globals.dataDictionary.section)) })
+      let newArray = this.state[property]
+      newArray.push(createTemplate(globals.dataDictionary.section))
+      this.setState({ [property]: newArray })
     }
   }
   render() {
@@ -55,6 +57,7 @@ class AddPastPaper extends React.Component {
             return (
               <div key={dataItem.property} className="AddPastPaper__row">
                 <p>{dataItem.name}</p>
+                <p>{this.state[dataItem.property].length}</p>
                 <Button onClick={event => this.handleChange(event, dataItem)}>
                   <Icon>add</Icon>
                   Add New {dataItem.element}
