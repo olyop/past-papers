@@ -10,7 +10,7 @@ const Subjects = props => (
 	<div id="Subjects">
 		{props.subjects.map(subject => (
 			<Route key={subject.key}
-				path={`${props.match.path}/${subject.abbreviation}`}
+				path={`${props.match.path}/${subject.key}`}
 				render={({ match }) => (
 					<Subject
 						subject={subject}

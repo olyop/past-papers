@@ -7,7 +7,7 @@ import { gbl_subjectPages } from '../../../globals'
 import './index.css'
 
 const SubjectSelectionSubject = props => (
-	<NavLink to={`/subjects/${props.abbreviation}${gbl_subjectPages[0].path}`} className="SubjectSelection__subject">
+	<NavLink to={`/subjects/${props.path}${gbl_subjectPages[0].path}`} className="SubjectSelection__subject">
 		<span className="SubjectSelection__list">{props.index + 1}.</span>
 		<div className="SubjectSelection__subject-info">
 			<div className="SubjectSelection__subject-text">
@@ -29,6 +29,7 @@ const SubjectSelection = props => (
 				{props.subjects.map((subject, index) => (
 					<SubjectSelectionSubject
 						index={index}
+						path={subject.key}
 						{...subject}
 					/>
 				))}

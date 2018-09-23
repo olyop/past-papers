@@ -17,7 +17,7 @@ import './index.css'
 class AddPastPaper extends React.Component {
   constructor(props) {
     super(props)
-    this.state = createTemplate(gbl_dataDictionary.pastPaper)
+    this.state = createTemplate(this.props.subjects, gbl_dataDictionary.pastPaper)
     this.handleChange = this.handleChange.bind(this)
   }
   handleChange(event, dataItem) {
@@ -27,7 +27,7 @@ class AddPastPaper extends React.Component {
       this.setState({ [property]: event.target.value })
     } else if (type === 'array') {
       let newArray = this.state[property]
-      newArray.push(createTemplate(gbl_dataDictionary[dataItem.element]))
+      newArray.push(createTemplate(this.props.subjects, gbl_dataDictionary[dataItem.element]))
       this.setState({ [property]: newArray })
     }
   }
@@ -35,7 +35,25 @@ class AddPastPaper extends React.Component {
     return (
       <div id="AddPastPaper">
         {gbl_dataDictionary.pastPaper.map(dataItem => {
-          if ('options' in dataItem) {
+          if ('externalOptions' in dataItem) {
+            return (
+              <FormControl key={dataItem.property} classes={{ root: 'AddPastPaper__row' }}>
+                <InputLabel>{dataItem.name}</InputLabel>
+                <Select
+                  value={this.state[dataItem.property]}
+                  onChange={event => this.handleChange(event, dataItem)}
+                >
+                  {this.props[dataItem.externalOptions].map(option => (
+                    <MenuItem
+                      key={option.key}
+                      value={option.key}
+                      children={option.name}
+                    />
+                  ))}
+                </Select>
+              </FormControl>
+            )
+          } else if ('options' in dataItem) {
             return (
               <FormControl key={dataItem.property} classes={{ root: 'AddPastPaper__row' }}>
                 <InputLabel>{dataItem.name}</InputLabel>

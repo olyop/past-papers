@@ -3,6 +3,6 @@
   flex-direction: column; }
   #AddPastPaper .AddPastPaper__row {
     padding-bottom: 20px;
-    width: 200px; }
+    width: 300px; }
   #AddPastPaper .AddPastPaper__row:last-child {
     padding-bottom: 0; }

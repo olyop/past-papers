@@ -1,8 +1,10 @@
-const createTemplate = dataDictionary => {
+const createTemplate = (subjects, dataDictionary) => {
   let template = {}
   for (let i = 0; i < dataDictionary.length; i++) {
     let dataItem = dataDictionary[i]
-    if ('options' in dataItem) {
+    if ('externalOptions' in dataItem) {
+      template[dataItem.property] = subjects[0].key
+    } else if ('options' in dataItem) {
       template[dataItem.property] = dataItem.options[0].key
     } else if (dataItem.type === 'array') {
       template[dataItem.property] = new Array(0)

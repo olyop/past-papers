@@ -1,4 +1,4 @@
-const gbl_api = 'http://localhost:3001'
+const gbl_api = 'http://192.168.1.100:3001'
 
 const gbl_aws = 'https://s3-ap-southeast-2.amazonaws.com/hsc-past-papers'
 
@@ -100,14 +100,14 @@ const gbl_dataDictionary = {
 				{ key: 'trails', name: 'Trials' },
 				{ key: 'halfYearlies', name: 'Half Yearlies' }
 			]
-		},
-			// property: 'subject',
-			// name: 'Subject',
-			// required: true,
-			// type: 'string',
-			// options: [],
-			// externalOptions: 'subjects'
-		{
+		},{
+			property: 'subject',
+			name: 'Subject',
+			required: true,
+			type: 'string',
+			options: [],
+			externalOptions: 'subjects'
+		},{
 			property: 'year',
 			name: 'Year',
 			required: true,
@@ -156,8 +156,8 @@ const gbl_dataDictionary = {
 		},{
 			property: 'questions',
 			name: 'Questions',
-			type: 'array',
 			required: true,
+			type: 'array',
 			element: 'question',
 			default: []
 		}

@@ -16,7 +16,7 @@ const PastPapersDatabase = props => (
       </div>
       <div className="PastPapersDatabase__content">
         <Route path={`${props.match.path}/view-database`} exact render={() => <ViewDatabase />} />
-        <Route path={`${props.match.path}/add-past-paper`} exact render={() => <AddPastPaper />} />
+        <Route path={`${props.match.path}/add-past-paper`} exact render={() => <AddPastPaper subjects={props.subjects} />} />
       </div>
     </div>
   </div>
