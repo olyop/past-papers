@@ -35,7 +35,9 @@ class AddPastPaper extends React.Component {
     return (
       <div id="AddPastPaper">
         {gbl_dataDictionary.pastPaper.map(dataItem => {
-          if ('externalOptions' in dataItem) {
+          if ('options' in dataItem) {
+            let externalOptions = 'externalOptions' in dataItem
+            let options = externalOptions ? this.props[dataItem.externalOptions] : dataItem.options
             return (
               <FormControl key={dataItem.property} classes={{ root: 'AddPastPaper__row' }}>
                 <InputLabel>{dataItem.name}</InputLabel>
@@ -43,25 +45,7 @@ class AddPastPaper extends React.Component {
                   value={this.state[dataItem.property]}
                   onChange={event => this.handleChange(event, dataItem)}
                 >
-                  {this.props[dataItem.externalOptions].map(option => (
-                    <MenuItem
-                      key={option.key}
-                      value={option.key}
-                      children={option.name}
-                    />
-                  ))}
-                </Select>
-              </FormControl>
-            )
-          } else if ('options' in dataItem) {
-            return (
-              <FormControl key={dataItem.property} classes={{ root: 'AddPastPaper__row' }}>
-                <InputLabel>{dataItem.name}</InputLabel>
-                <Select
-                  value={this.state[dataItem.property]}
-                  onChange={event => this.handleChange(event, dataItem)}
-                >
-                  {dataItem.options.map(option => (
+                  {options.map(option => (
                     <MenuItem
                       key={option.key}
                       value={option.key}
@@ -73,14 +57,14 @@ class AddPastPaper extends React.Component {
             )
           } else if (dataItem.type === 'array') {
             return (
-              <div key={dataItem.property} className="AddPastPaper__row">
+              <FormControl key={dataItem.property} className="AddPastPaper__row">
                 <p>{dataItem.name}</p>
                 <p>{this.state[dataItem.property].length}</p>
                 <Button onClick={event => this.handleChange(event, dataItem)}>
                   <Icon>add</Icon>
                   Add New {dataItem.element}
                 </Button>
-              </div>
+              </FormControl>
             )
           } else {
             return (
