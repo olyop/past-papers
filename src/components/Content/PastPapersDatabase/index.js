@@ -5,18 +5,33 @@ import { Route, NavLink } from 'react-router-dom'
 import AddPastPaper from './AddPastPaper'
 import ViewDatabase from './ViewDatabase'
 
+import { gbl_manageDatabasePages } from '../../../globals'
+
 import './index.css'
 
 const PastPapersDatabase = props => (
   <div id="PastPapersDatabase">
     <div className="centred-content">
       <div className="PastPapersDatabase__header">
-        <NavLink to={`${props.match.path}/view-database`}>View Database</NavLink>
-        <NavLink to={`${props.match.path}/add-past-paper`}>Add Past Paper</NavLink>
+        {gbl_manageDatabasePages.map(page => (
+          <NavLink
+            key={page.path}
+            className="PastPapersDatabase__link"
+            to={`${props.match.path}/${page.path}`}
+            activeClassName="PastPapersDatabase__link-active"
+          >
+            <i className="material-icons">{page.icon}</i>
+            <p>{page.name}</p>
+          </NavLink>
+        ))}
       </div>
       <div className="PastPapersDatabase__content">
-        <Route path={`${props.match.path}/view-database`} exact render={() => <ViewDatabase />} />
-        <Route path={`${props.match.path}/add-past-paper`} exact render={() => <AddPastPaper subjects={props.subjects} />} />
+        {gbl_manageDatabasePages.map(page => (
+          <Route key={page.path} path={`${props.match.path}/${page.path}`} exact render={() => {
+            if (page.path === 'view-database') { return <ViewDatabase /> }
+            else if (page.path === 'add-past-paper') { return <AddPastPaper subjects={props.subjects} /> }
+          }} />
+        ))}
       </div>
     </div>
   </div>

@@ -1,24 +1,36 @@
-const gbl_api = 'http://192.168.1.100:3001'
+const gbl_api = 'http://localhost:3001'
 
 const gbl_aws = 'https://s3-ap-southeast-2.amazonaws.com/hsc-past-papers'
 
 const gbl_subjectPages = [
 	{
 		name: 'Questions',
-		icon: 'question_answer',
-		path: '/questions'
+		path: '/questions',
+		icon: 'question_answer'
 	},{
 		name: 'Past Papers',
-		icon: 'insert_drive_file',
-		path: '/past-papers'
+		path: '/past-papers',
+		icon: 'insert_drive_file'
 	},{
 		name: 'Resources',
-		icon: 'book',
-		path: '/resources'
+		path: '/resources',
+		icon: 'book'
 	},{
 		name: 'Info',
-		icon: 'info',
-		path: '/info'
+		path: '/info',
+		icon: 'info'
+	}
+]
+
+const gbl_manageDatabasePages = [
+	{
+		name: 'View Database',
+		path: 'view-database',
+		icon: 'view_list'
+	}, {
+		name: 'Add Past Paper',
+		path: 'add-past-paper',
+		icon: 'add'
 	}
 ]
 
@@ -185,6 +197,7 @@ export {
 	gbl_api,
 	gbl_aws,
 	gbl_subjectPages,
+	gbl_manageDatabasePages,
 	gbl_searchFilters,
 	gbl_dataDictionary
 }

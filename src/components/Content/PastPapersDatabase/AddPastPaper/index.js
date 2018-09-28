@@ -17,7 +17,7 @@ import './index.css'
 class AddPastPaper extends React.Component {
   constructor(props) {
     super(props)
-    this.state = createTemplate(this.props.subjects, gbl_dataDictionary.pastPaper)
+    this.state = createTemplate({ subjects: this.props.subjects }, gbl_dataDictionary.pastPaper)
     this.handleChange = this.handleChange.bind(this)
   }
   handleChange(event, dataItem) {
@@ -27,7 +27,7 @@ class AddPastPaper extends React.Component {
       this.setState({ [property]: event.target.value })
     } else if (type === 'array') {
       let newArray = this.state[property]
-      newArray.push(createTemplate(this.props.subjects, gbl_dataDictionary[dataItem.element]))
+      newArray.push(createTemplate({}, gbl_dataDictionary[dataItem.element]))
       this.setState({ [property]: newArray })
     }
   }

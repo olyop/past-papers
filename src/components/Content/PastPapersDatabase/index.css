@@ -6,7 +6,21 @@
     padding: 0; }
   #PastPapersDatabase .PastPapersDatabase__header {
     border-bottom: 1px solid rgba(0,0,0,0.14);
-    padding: 20px; }
+    display: flex;}
+    #PastPapersDatabase .PastPapersDatabase__link {
+      padding: 15px 25px;
+      display: flex;
+      align-items: center; }
+      #PastPapersDatabase .PastPapersDatabase__link:hover p {
+        text-decoration: underline; }
+      #PastPapersDatabase .PastPapersDatabase__link p {
+        font-size: 20px; }
+      #PastPapersDatabase .PastPapersDatabase__link i {
+        padding-right: 5px;
+        font-size: 24px; }
+    #PastPapersDatabase .PastPapersDatabase__link-active p,
+    #PastPapersDatabase .PastPapersDatabase__link-active i {
+      color: #F44336; }
   #PastPapersDatabase .PastPapersDatabase__content {
     padding: 20px; }
 
