@@ -17,7 +17,7 @@ const PastPapersDatabase = props => (
           <NavLink
             key={page.path}
             className="PastPapersDatabase__link"
-            to={`${props.match.path}/${page.path}`}
+            to={props.match.path + page.path}
             activeClassName="PastPapersDatabase__link-active"
           >
             <i className="material-icons">{page.icon}</i>
@@ -27,9 +27,9 @@ const PastPapersDatabase = props => (
       </div>
       <div className="PastPapersDatabase__content">
         {gbl_manageDatabasePages.map(page => (
-          <Route key={page.path} path={`${props.match.path}/${page.path}`} exact render={() => {
-            if (page.path === 'view-database') { return <ViewDatabase /> }
-            else if (page.path === 'add-past-paper') { return <AddPastPaper subjects={props.subjects} /> }
+          <Route key={page.key} path={props.match.path + page.path} exact render={() => {
+            if (page.key === 'view-database') { return <ViewDatabase /> }
+            else if (page.key === 'add-past-paper') { return <AddPastPaper subjects={props.subjects} /> }
           }} />
         ))}
       </div>

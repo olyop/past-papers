@@ -25,11 +25,13 @@ const gbl_subjectPages = [
 const gbl_manageDatabasePages = [
 	{
 		name: 'View Database',
-		path: 'view-database',
+		key: 'view-database',
+		path: '/view-database',
 		icon: 'view_list'
-	}, {
+	},{
 		name: 'Add Past Paper',
-		path: 'add-past-paper',
+		key: 'add-past-paper',
+		path: '/add-past-paper',
 		icon: 'add'
 	}
 ]

@@ -36,8 +36,8 @@ class AddPastPaper extends React.Component {
       <div id="AddPastPaper">
         {gbl_dataDictionary.pastPaper.map(dataItem => {
           if ('options' in dataItem) {
-            let externalOptions = 'externalOptions' in dataItem
-            let options = externalOptions ? this.props[dataItem.externalOptions] : dataItem.options
+            let hasExternalOptions = 'externalOptions' in dataItem
+            let options = hasExternalOptions ? this.props[dataItem.externalOptions] : dataItem.options
             return (
               <FormControl key={dataItem.property} classes={{ root: 'AddPastPaper__row' }}>
                 <InputLabel>{dataItem.name}</InputLabel>
@@ -64,6 +64,15 @@ class AddPastPaper extends React.Component {
                   <Icon>add</Icon>
                   Add New {dataItem.element}
                 </Button>
+                {this.state[dataItem.property].map((section, index) => {
+                  return (
+                    <div key={index}>
+                      {gbl_dataDictionary[dataItem.element].map(dataItem1 => {
+                        return <p key={dataItem1.property}>{dataItem1.property}</p>
+                      })}
+                    </div>
+                  )
+                })}
               </FormControl>
             )
           } else {

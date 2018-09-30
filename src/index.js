@@ -65,7 +65,7 @@ class Index extends React.Component {
 	render() {
 		return (
 			<BrowserRouter>
-				<div id="index">
+				<div id="Index">
 					<Header
 						home={this.home}
 						menu={this.state.menu}
