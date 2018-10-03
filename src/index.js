@@ -36,9 +36,7 @@ class Index extends React.Component {
   componentDidMount() {
     axios({ url: `${gbl_api}/subjects` })
 			.then(response => {
-				this.setState({
-					subjects: response.data
-				})
+				this.setState({	subjects: response.data })
 			})
     	.catch(error => {
 				this.setState({
