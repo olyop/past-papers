@@ -35,15 +35,13 @@ class Index extends React.Component {
 	}
   componentDidMount() {
     axios({ url: `${gbl_api}/subjects` })
-			.then(response => {
-				this.setState({	subjects: response.data })
-			})
-    	.catch(error => {
-				this.setState({
-					subjectsHasError: true,
-					subjectsError: { message: error.message, ...error	}
-				})
-			})
+			.then(response => this.setState({
+				subjects: response.data
+			}))
+    	.catch(error => this.setState({
+				subjectsError: { message: error.message, ...error	},
+				subjectsHasError: true
+			}))
   }
 	home() {
 		let haveSubjectsLoaded = this.state.subjectsHasError ? false : true
