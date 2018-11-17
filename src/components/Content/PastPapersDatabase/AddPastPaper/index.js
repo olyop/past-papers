@@ -26,7 +26,6 @@ class AddPastPaper extends React.Component {
     }
   }
   render() {
-    console.log(this.state.sections)
     return (
       <div id="AddPastPaper">
         {gbl_dataDictionary.pastPaper.map((dataItem, index) => (
